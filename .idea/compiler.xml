@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="common" />
+        <module name="mq-consumer-server" />
+        <module name="mq-producer-server" />
+        <module name="springboot-kafka" />
+        <module name="SpringCloudStream-Kafka" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common" target="1.8" />
+      <module name="mq-common" target="1.5" />
+      <module name="mq-consumer-server" target="1.8" />
+      <module name="mq-producer-server" target="1.8" />
+      <module name="mqc-ommon" target="1.8" />
+      <module name="spring4all" target="1.8" />
+      <module name="springboot-kafka" target="1.8" />
+      <module name="springboot-rocketmq" target="1.8" />
+      <module name="SpringCloudStream-Kafka" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

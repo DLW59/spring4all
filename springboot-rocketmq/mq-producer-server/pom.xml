@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springboot-rocketmq</artifactId>
+        <groupId>com.dlw.study</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mq-producer-server</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.dlw.study</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profiles.active>dev</profiles.active>
+                <port>8090</port>
+                <namesrv.addr>127.0.0.1:9876</namesrv.addr>
+                <producer.group>devProducerGroup</producer.group>
+                <instance.name>devProducer1</instance.name>
+                <log.level>INFO</log.level>
+                <eureka.url>http://eureka.springcloud.cn</eureka.url>
+                <eureka.is.register>false</eureka.is.register>
+            </properties>
+            <activation>
+                <!-- 设置默认激活这个配置 -->
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+
+        <profile>
+            <id>test</id>
+            <properties>
+                <profiles.active>test</profiles.active>
+                <port>8090</port>
+                <namesrv.addr></namesrv.addr>
+                <producer.group>testProducerGroup</producer.group>
+                <instance.name>testProducer1</instance.name>
+                <log.level>INFO</log.level>
+                <eureka.url></eureka.url>
+                <eureka.is.register>false</eureka.is.register>
+            </properties>
+            <activation>
+                <!-- 设置默认激活这个配置 -->
+                <!--<activeByDefault>true</activeByDefault>-->
+            </activation>
+        </profile>
+
+        <profile>
+            <id>pre</id>
+            <properties>
+                <profiles.active>pre</profiles.active>
+                <port>8090</port>
+                <namesrv.addr></namesrv.addr>
+                <producer.group>preProducerGroup</producer.group>
+                <instance.name>preProducer1</instance.name>
+                <log.level>INFO</log.level>
+                <eureka.url></eureka.url>
+                <eureka.is.register>false</eureka.is.register>
+            </properties>
+            <activation>
+                <!-- 设置默认激活这个配置 -->
+                <!--<activeByDefault>true</activeByDefault>-->
+            </activation>
+        </profile>
+
+        <profile>
+            <id>prod</id>
+            <properties>
+                <profiles.active>prod</profiles.active>
+                <port>8090</port>
+                <namesrv.addr></namesrv.addr>
+                <producer.group>prodProducerGroup</producer.group>
+                <instance.name>prodProducer1</instance.name>
+                <log.level>INFO</log.level>
+                <eureka.url></eureka.url>
+                <eureka.is.register>false</eureka.is.register>
+            </properties>
+            <activation>
+                <!-- 设置默认激活这个配置 -->
+                <!--<activeByDefault>true</activeByDefault>-->
+            </activation>
+        </profile>
+
+    </profiles>
+</project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/springcloud-stream-kafka/SpringCloudStream-Kafka.iml" filepath="$PROJECT_DIR$/springcloud-stream-kafka/SpringCloudStream-Kafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-rocketmq/common/common.iml" filepath="$PROJECT_DIR$/springboot-rocketmq/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-rocketmq/mq-consumer-server/mq-consumer-server.iml" filepath="$PROJECT_DIR$/springboot-rocketmq/mq-consumer-server/mq-consumer-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-rocketmq/mq-producer-server/mq-producer-server.iml" filepath="$PROJECT_DIR$/springboot-rocketmq/mq-producer-server/mq-producer-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring4all.iml" filepath="$PROJECT_DIR$/spring4all.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-kafka/springboot-kafka.iml" filepath="$PROJECT_DIR$/springboot-kafka/springboot-kafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-rocketmq/springboot-rocketmq.iml" filepath="$PROJECT_DIR$/springboot-rocketmq/springboot-rocketmq.iml" />
+    </modules>
+  </component>
+</project>

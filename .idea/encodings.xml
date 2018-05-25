@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-kafka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-rocketmq" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-rocketmq/common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-rocketmq/mq-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-rocketmq/mq-consumer-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-rocketmq/mq-producer-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-stream-kafka" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

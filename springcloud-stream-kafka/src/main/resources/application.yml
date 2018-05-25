@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: stream-kafka
+  cloud:
+    instance-count: 1
+    instance-index: 0
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          zk-nodes: localhost:2181
+          auto-add-partitions: true
+          auto-create-topics: true
+          min-partition-count: 1
+      bindings:
+        input:
+          destination: project
+          content-type: application/json
+          group: project-group  #消费者组
+          consumer:
+            concurrency: 1   #并发性
+        output:
+          destination: project
+          content-type: application/json
+          producer:
+            partitionCount: 1   #分区数
+#            partitionKeyExpression: payload.id  #过期key
+server:
+  port: 8901

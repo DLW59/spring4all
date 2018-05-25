@@ -1,0 +1,29 @@
+server:
+  port: @port@
+rocketmq:
+  nameserver:
+    address: @namesrv.addr@
+  producer:
+    group: @producer.group@
+    instance:
+      name: @instance.name@
+spring:
+  application:
+    name: mq-consumer-server
+
+#日志路径
+logging:
+  path: classpath:logback-spring.xml
+  level: @log.level@
+
+eureka:
+  instance:
+    prefer-ip-address: true
+#    lease-renewal-interval-in-seconds: 10
+#    lease-expiration-duration-in-seconds: 30
+  client:
+    serviceUrl:
+      defaultZone: @eureka.url@
+    registerWithEureka: @eureka.is.register@
+    fetchRegistry: @eureka.is.register@
+

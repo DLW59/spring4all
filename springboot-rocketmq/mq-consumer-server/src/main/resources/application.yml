@@ -1,0 +1,49 @@
+server:
+  port: @port@
+rocketmq:
+  nameserver:
+    address: @namesrv.addr@
+  consumer:
+    group: @consumer.group@
+    instance:
+      name: @instance.name@
+#点位状态改变回调地址
+setpoint:
+  service:
+    ssp:
+      point:
+        dev:
+          new: http://127.0.0.1:9001/ssp/point/new
+          disable: http://127.0.0.1:9001/ssp/point/disable
+          taboo: http://127.0.0.1:9001/ssp/point/taboo
+        test:
+          new: http://127.0.0.1:9001/ssp/point/new
+          disable: http://127.0.0.1:9001/ssp/point/disable
+          taboo: http://127.0.0.1:9001/ssp/point/taboo
+        pre:
+          new: http://127.0.0.1:9001/ssp/point/new
+          disable: http://127.0.0.1:9001/ssp/point/disable
+          taboo: http://127.0.0.1:9001/ssp/point/taboo
+        prod:
+          new: http://127.0.0.1:9001/ssp/point/new
+          disable: http://127.0.0.1:9001/ssp/point/disable
+          taboo: http://127.0.0.1:9001/ssp/point/taboo
+spring:
+  application:
+    name: mq-producer-server
+
+#日志路径
+logging:
+  path: classpath:logback-spring.xml
+  level: @log.level@
+
+eureka:
+  instance:
+    prefer-ip-address: true
+#    lease-renewal-interval-in-seconds: 10
+#    lease-expiration-duration-in-seconds: 30
+  client:
+    serviceUrl:
+      defaultZone: @eureka.url@
+    registerWithEureka: @eureka.is.register@
+    fetchRegistry: @eureka.is.register@
