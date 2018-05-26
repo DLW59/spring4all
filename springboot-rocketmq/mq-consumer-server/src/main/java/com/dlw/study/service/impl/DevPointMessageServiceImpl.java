@@ -55,13 +55,17 @@ public class DevPointMessageServiceImpl implements DevPointMessageService {
             return ConsumeOrderlyStatus.SUCCESS;
         }
         //tags不在接收范围内，即为错误消息，消费掉才能保证队列不阻塞
-        PointMessageTagsEnum pointMessageTagsEnum = PointMessageTagsEnum.getByCode(tags);
+        PointMessageTagsEnum pointMessageTagsEnum = PointMessageTagsEnum.getByTag(tags);
         if (null == pointMessageTagsEnum) {
             return ConsumeOrderlyStatus.SUCCESS;
         }
         String messageText = new String(message.getBody());
         log.info("messageText:{}", messageText);
         if (StringUtils.isEmpty(messageText)) {
+            return ConsumeOrderlyStatus.SUCCESS;
+        }
+        log.info("重试了：{}次",message.getReconsumeTimes());
+        if (2 <= message.getReconsumeTimes()) {
             return ConsumeOrderlyStatus.SUCCESS;
         }
         switch (pointMessageTagsEnum) {
@@ -84,13 +88,13 @@ public class DevPointMessageServiceImpl implements DevPointMessageService {
      * 点位禁忌改变
      * @param messageText 消息体
      */
-    private void taboo(String messageText) {
+    private void taboo(String messageText) throws Exception {
         Taboo taboo;
         try {
             taboo = JSON.parseObject(messageText, Taboo.class);
             restTemplate.postForObject(devTabooUrl,taboo,Response.class);
         }catch (Exception e){
-            return;
+            throw new Exception();
         }
         log.info("消费消息：{}",messageText);
     }
@@ -99,13 +103,13 @@ public class DevPointMessageServiceImpl implements DevPointMessageService {
      * 点位不可售
      * @param messageText 消息体
      */
-    private void disable(String messageText) {
+    private void disable(String messageText) throws Exception {
         Disable disable;
         try {
             disable = JSON.parseObject(messageText, Disable.class);
             restTemplate.delete(devDisableUrl,disable);
         }catch (Exception e){
-            return;
+            throw new Exception();
         }
         log.info("消费消息：{}",messageText);
     }

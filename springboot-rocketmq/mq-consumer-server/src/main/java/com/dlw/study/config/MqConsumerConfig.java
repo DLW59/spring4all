@@ -71,9 +71,11 @@ public class MqConsumerConfig {
         //从队列的第一个开始消费
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
         //监听所有主题消息，可根据业务过滤主题消息
-        for (MessageTopicEnum topicEnum : MessageTopicEnum.values()) {
-            consumer.subscribe(topicEnum.getTopic(), "*");
-        }
+//        for (MessageTopicEnum topicEnum : MessageTopicEnum.values()) {
+//            //可根据tag过滤消息
+//            consumer.subscribe(topicEnum.getTopic(), "new || disable || taboo");
+//        }
+        consumer.subscribe(MessageTopicEnum.DEV_SETPOINT_POINT_CHANGE.getTopic(), "new || disable || taboo");
         //据说用匿名内部类实现消息监听只会消费一次
 //        consumer.setMessageListener(new MessageListenerOrderly() {
 //            @Override

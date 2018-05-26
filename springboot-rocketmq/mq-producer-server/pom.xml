@@ -29,7 +29,7 @@
                 <producer.group>devProducerGroup</producer.group>
                 <instance.name>devProducer1</instance.name>
                 <log.level>INFO</log.level>
-                <eureka.url>http://eureka.springcloud.cn</eureka.url>
+                <eureka.url></eureka.url>
                 <eureka.is.register>false</eureka.is.register>
             </properties>
             <activation>

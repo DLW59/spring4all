@@ -52,16 +52,16 @@ public class ProducerTest {
     public void testNew() throws InterruptedException, RemotingException, MQClientException, MQBrokerException {
         CommonMessage message = new CommonMessage();
         Add add = new Add();
-        add.setSupplier("001");
+        add.setSupplier("a0001");
         List<Add.Point> points = new ArrayList<>();
         Add.Point point = new Add.Point();
         point.setType("1");
-        point.setCode("cd001");
+        point.setCode("CD-A69-079");
         points.add(point);
         add.setPoint(points);
         message.setTopic("dev_setpoint_point_change");
-        message.setTag("0");
-        message.setKey("新增点位");
+        message.setTag("new");
+        message.setKey(message.getTopic() + "_" + point.getCode() +"_"+ System.currentTimeMillis());
         message.setMessage(JSON.toJSONString(add/*, SerializerFeature.WriteMapNullValue*/));
         message.setOrderId(1);
         mqService.send(message);

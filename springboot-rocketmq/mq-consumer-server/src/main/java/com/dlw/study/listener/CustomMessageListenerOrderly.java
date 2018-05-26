@@ -1,6 +1,7 @@
 package com.dlw.study.listener;
 
 import com.dlw.study.service.impl.MessageDispatch;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.consumer.listener.ConsumeOrderlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeOrderlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerOrderly;
@@ -16,6 +17,7 @@ import java.util.List;
  * @description 自定义消息监听
  */
 @Component
+@Slf4j
 public class CustomMessageListenerOrderly implements MessageListenerOrderly {
 
     @Autowired
@@ -24,9 +26,10 @@ public class CustomMessageListenerOrderly implements MessageListenerOrderly {
     @Override
     public ConsumeOrderlyStatus consumeMessage(List<MessageExt> list, ConsumeOrderlyContext consumeOrderlyContext) {
         try {
+            log.info("receive msg:{}",list.toString());
             return messageDispatch.dispatch(list);
         }catch (Exception e) {
-            return ConsumeOrderlyStatus.SUSPEND_CURRENT_QUEUE_A_MOMENT;
+            return ConsumeOrderlyStatus.SUCCESS;
         }
     }
 }

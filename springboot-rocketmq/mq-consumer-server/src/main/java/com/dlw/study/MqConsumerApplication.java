@@ -25,7 +25,7 @@ public class MqConsumerApplication {
         SpringApplication.run(MqConsumerApplication.class, args);
     }
 
-    @LoadBalanced
+//    @LoadBalanced
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();

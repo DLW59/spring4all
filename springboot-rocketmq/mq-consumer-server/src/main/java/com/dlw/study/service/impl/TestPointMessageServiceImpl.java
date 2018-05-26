@@ -6,7 +6,6 @@ import com.dlw.study.model.Response;
 import com.dlw.study.param.Add;
 import com.dlw.study.param.Disable;
 import com.dlw.study.param.Taboo;
-import com.dlw.study.service.DevPointMessageService;
 import com.dlw.study.service.TestPointMessageService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -56,7 +55,7 @@ public class TestPointMessageServiceImpl implements TestPointMessageService {
             return ConsumeOrderlyStatus.SUCCESS;
         }
         //tags不在接收范围内，即为错误消息，消费掉才能保证队列不阻塞
-        PointMessageTagsEnum pointMessageTagsEnum = PointMessageTagsEnum.getByCode(tags);
+        PointMessageTagsEnum pointMessageTagsEnum = PointMessageTagsEnum.getByTag(tags);
         if (null == pointMessageTagsEnum) {
             return ConsumeOrderlyStatus.SUCCESS;
         }

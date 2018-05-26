@@ -9,26 +9,26 @@ package com.dlw.study.enums;
  */
 public enum PointMessageTagsEnum {
 
-	NEW("0", "点位可售"),
-	DISABLE("1", "点位不可售"),
-	TABOO("2", "点位禁忌行业");
+	NEW("new", "点位可售"),
+	DISABLE("disable", "点位不可售"),
+	TABOO("taboo", "点位禁忌行业");
 
 	/**
 	 * 消息tag标识
 	 */
-	private String code;
+	private String tag;
 	/**
 	 * 意义
 	 */
 	private String note;
 
 
-	public String getCode() {
-		return code;
+	public String getTag() {
+		return tag;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
 
 	public String getNote() {
@@ -41,19 +41,19 @@ public enum PointMessageTagsEnum {
 
 	PointMessageTagsEnum(String code, String note) {
 
-		this.code = code;
+		this.tag = code;
 		this.note = note;
 	}
 
 	/**
 	 * 根据code获取枚举
 	 *
-	 * @param code 标识
+	 * @param tag 标识
 	 * @return 对应枚举
 	 */
-	public static PointMessageTagsEnum getByCode(String code) {
+	public static PointMessageTagsEnum getByTag(String tag) {
 		for (PointMessageTagsEnum tagsEnum : PointMessageTagsEnum.values()) {
-			if (tagsEnum.getCode().equals(code)) {
+			if (tagsEnum.getTag().equals(tag)) {
 				return tagsEnum;
 			}
 		}
@@ -70,7 +70,7 @@ public enum PointMessageTagsEnum {
 
 		boolean has = false;
 		for (PointMessageTagsEnum tagsEnum : PointMessageTagsEnum.values()) {
-			if (tagsEnum.getCode().equals(tag)) {
+			if (tagsEnum.getTag().equals(tag)) {
 				has = true;
 			}
 		}
