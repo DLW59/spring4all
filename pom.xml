@@ -26,6 +26,7 @@
         <module>springcloud-stream-kafka</module>
         <module>springboot-kafka</module>
         <module>springboot-rocketmq</module>
+        <module>eureka-server</module>
     </modules>
 
     <dependencies>

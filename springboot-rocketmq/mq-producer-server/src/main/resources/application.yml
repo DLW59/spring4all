@@ -15,15 +15,29 @@ spring:
 logging:
   path: classpath:logback-spring.xml
   level: @log.level@
+#
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+##    lease-renewal-interval-in-seconds: 10
+##    lease-expiration-duration-in-seconds: 30
+#  client:
+#    serviceUrl:
+#      defaultZone: @eureka.url@
+#    registerWithEureka: @eureka.is.register@
+#    fetchRegistry: @eureka.is.register@
 
-eureka:
-  instance:
-    prefer-ip-address: true
-#    lease-renewal-interval-in-seconds: 10
-#    lease-expiration-duration-in-seconds: 30
-  client:
-    serviceUrl:
-      defaultZone: @eureka.url@
-    registerWithEureka: @eureka.is.register@
-    fetchRegistry: @eureka.is.register@
+#定时任务配置
+xxl:
+  job:
+    admin:
+      addresses: http://192.168.52.130:8888/  #界面管理服务地址
+    executor:
+      appname: mq-producer-job
+      ip: 127.0.0.1      #执行器服务地址
+      port: 9999
+      logpath: H:\\idea\\workspace\\git\\spring4all\\springboot-rocketmq\\mq-producer-server\\logs
+      logretentiondays: -1
+    accessToken:
+
 

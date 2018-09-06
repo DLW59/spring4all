@@ -25,12 +25,12 @@
             <properties>
                 <profiles.active>dev</profiles.active>
                 <port>8091</port>
-                <namesrv.addr>127.0.0.1:9876</namesrv.addr>
+                <namesrv.addr>192.168.52.130:9876;192.168.52.131:9876</namesrv.addr>
                 <consumer.group>devConsumerGroup</consumer.group>
                 <instance.name>devConsumer1</instance.name>
                 <log.level>INFO</log.level>
                 <!--springcloud的一个公益注册中心-->
-                <eureka.url>http://eureka.springcloud.cn</eureka.url>
+                <eureka.url><!--192.168.52.130:8761/eureka,192.168.52.131:8761/eureka--></eureka.url>
                 <eureka.is.register>false</eureka.is.register>
             </properties>
             <activation>

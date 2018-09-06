@@ -51,9 +51,10 @@ public class MqServiceImpl implements MqService {
         }catch (Exception e) {
             log.info("send msg：发送失败----消息key={}",commonMessage.getKey());
             log.error(e.getMessage());
-        }finally {
-            producer.shutdown();
         }
+//        finally {
+//            producer.shutdown();
+//        }
         return CommonResponse.success();
     }
 }

@@ -16,9 +16,9 @@ import org.springframework.web.client.RestTemplate;
  * @description
  */
 @SpringBootApplication
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @EnableCaching
-@EnableFeignClients
+//@EnableFeignClients
 public class MqConsumerApplication {
 
     public static void main(String args[]) {

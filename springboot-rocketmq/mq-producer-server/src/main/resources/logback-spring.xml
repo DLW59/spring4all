@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
 	<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
-	<property name="LOG_HOME" value="E:\\ideawork\\spring4all\\springboot-rocketmq\\mq-producer-server\\logs"/>
+	<property name="LOG_HOME" value="H:\\idea\\workspace\\git\\spring4all\\springboot-rocketmq\\mq-producer-server\\logs"/>
+	<!--<property name="LOG_HOME" value="/home/dlw/workspace/logs/mq/producer"/>-->
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 			<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->

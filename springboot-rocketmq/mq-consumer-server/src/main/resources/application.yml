@@ -37,13 +37,13 @@ logging:
   path: classpath:logback-spring.xml
   level: @log.level@
 
-eureka:
-  instance:
-    prefer-ip-address: true
-#    lease-renewal-interval-in-seconds: 10
-#    lease-expiration-duration-in-seconds: 30
-  client:
-    serviceUrl:
-      defaultZone: @eureka.url@
-    registerWithEureka: @eureka.is.register@
-    fetchRegistry: @eureka.is.register@
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+##    lease-renewal-interval-in-seconds: 10
+##    lease-expiration-duration-in-seconds: 30
+#  client:
+#    serviceUrl:
+#      defaultZone: @eureka.url@
+#    registerWithEureka: @eureka.is.register@
+#    fetchRegistry: @eureka.is.register@

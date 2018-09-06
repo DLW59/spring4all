@@ -1,0 +1,15 @@
+server:
+  port: 10000
+spring:
+  application:
+    name: spring-boot-kafka
+  kafka:
+    template:
+      default-topic: test   #默认topic
+    producer:
+      bootstrap-servers: localhost:9092
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: cgroup
+    listener:
+      concurrency: 3

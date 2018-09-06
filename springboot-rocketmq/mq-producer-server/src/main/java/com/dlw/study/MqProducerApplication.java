@@ -3,8 +3,6 @@ package com.dlw.study;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cloud.client.SpringCloudApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @author dlw
@@ -12,7 +10,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @description
  */
 @SpringBootApplication
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @EnableCaching
 public class MqProducerApplication {
 

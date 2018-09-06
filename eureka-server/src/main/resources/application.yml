@@ -1,0 +1,17 @@
+
+server:
+  port: @port@
+spring:
+  application:
+    name: eureka-server
+eureka:
+  client:
+    service-url:
+#      defaultZone: 192.168.52.131:8761/eureka
+      defaultZone: 192.168.52.130:8761/eureka
+    register-with-eureka: @eureka.is.register@
+    fetch-registry: @eureka.is.register@
+logging:
+  path: classpath:logback-spring.xml
+  level: @log.level@
+
