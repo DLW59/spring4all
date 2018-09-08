@@ -13,6 +13,20 @@
 .mtj.tmp/
 
 # Package Files #
+/.gitignore
+/.iml
+/.idea
+/eureks-server/target
+/eureks-server/*.iml
+/spring-boot-admin/target
+/spring-boot-admin/*.iml
+/springboot-kafka/target
+/springboot-kafka/*.iml
+/springboot-rocketmq/target
+/springboot-rocketmq/*.iml
+
+
+
 *.jar
 *.war
 *.nar
@@ -20,7 +34,8 @@
 *.zip
 *.tar.gz
 *.rar
-*.iml
+
+*.target
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
