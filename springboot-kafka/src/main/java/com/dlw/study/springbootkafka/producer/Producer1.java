@@ -25,13 +25,14 @@ public class Producer1 {
     private KafkaTemplate kafkaTemplate;
 
     /**
-     *
+     *定时发送
      */
-    @Scheduled(cron = "0/10 * * * * ?")
+    @Scheduled(cron = "0 0/1 * * * ?")
     public void send() {
         log.info("default-topic:{}",defaultTopic);
         Message1 message1 = new Message1(UUID.randomUUID().toString(),
                 "hello kafka",System.currentTimeMillis());
         kafkaTemplate.send(defaultTopic, message1.toString());
     }
+
 }

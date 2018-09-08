@@ -1,0 +1,21 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: spring-boot-admin
+  boot:
+    admin:
+      url: http://localhost:${server.port}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+endpoints:
+  autoconfig:
+    web:
+      enabled: true
