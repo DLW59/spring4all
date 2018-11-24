@@ -31,7 +31,7 @@ logging:
 xxl:
   job:
     admin:
-      addresses: http://192.168.52.130:8888/  #界面管理服务地址
+      addresses: http://192.168.1.130:8888/  #界面管理服务地址
     executor:
       appname: mq-producer-job
       ip: 127.0.0.1      #执行器服务地址

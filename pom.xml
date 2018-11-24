@@ -28,6 +28,8 @@
         <module>springboot-rocketmq</module>
         <module>eureka-server</module>
         <module>spring-boot-admin</module>
+        <module>spring-boot-jpa</module>
+        <module>transaction-all</module>
     </modules>
 
     <dependencies>

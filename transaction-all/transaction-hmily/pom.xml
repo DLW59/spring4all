@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>transaction-all</artifactId>
+        <groupId>com.dlw.study</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>transaction-hmily</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>account-service</module>
+        <module>order-service</module>
+        <module>stock-service</module>
+    </modules>
+    <properties>
+        <hmily-veraion>1.2.1-RELEASE</hmily-veraion>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>hmily-core</artifactId>
+            <version>${hmily-veraion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>hmily-common</artifactId>
+            <version>${hmily-veraion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>hmily-annotation</artifactId>
+            <version>${hmily-veraion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>hmily-spring-boot-starter-parent</artifactId>
+            <version>${hmily-veraion}</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

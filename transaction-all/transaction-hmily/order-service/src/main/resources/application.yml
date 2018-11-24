@@ -1,0 +1,51 @@
+server:
+  port: 12001
+
+spring:
+  application:
+    name: order-service
+  datasource:
+    driver-class-name:  com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/tcc_order?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+    type: com.zaxxer.hikari.HikariDataSource
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone:  http://127.0.0.1:8761/eureka
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${eureka.instance.hostname}:${spring.application.instance_id:${server.port}}
+    lease-renewal-interval-in-seconds: 5  #每隔几秒告诉eureka服务器我还存活，用于心跳检测
+    lease-expiration-duration-in-seconds: 10 #如果心跳检测一直没有发送，10秒后会从eureka服务器中将此服务剔除
+
+mybatis:
+  type-aliases-package: com.dlw.study.domain
+  config-location: classpath:mybatis-config.xml
+#  mapper-locations: classpath:mapper/*.xml 不用xml可不配置
+
+#logging:
+#  config: classpath:logback-admin.xml
+
+org:
+  dromara:
+    hmily:
+      serializer: kryo
+      recoverDelayTime: 128
+      retryMax: 30
+      scheduledDelay: 128
+      scheduledThreadMax:  10
+      repositorySupport: db
+      started: false
+      hmilyDbConfig:
+        driverClassName: com.mysql.jdbc.Driver
+        url:  jdbc:mysql://127.0.0.1:3306/tcc?useUnicode=true&amp;characterEncoding=utf8
+        username: root
+        password: 123456
+logging:
+  path: transaction-all/transaction-hmily/order-service/logs
