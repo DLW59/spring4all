@@ -22,12 +22,14 @@ public class ResponseData<T> implements Serializable {
     public static ResponseData fail() {
         return ResponseData.builder().status(Boolean.FALSE)
                 .code(500)
+                .msg("失败")
                 .build();
     }
 
     public static ResponseData success() {
         return ResponseData.builder().status(Boolean.TRUE)
                 .code(0)
+                .msg("成功")
                 .build();
     }
 }

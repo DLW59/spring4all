@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dlw.study.dao.AccountDao">
+
+    <resultMap id="accountMap" type="com.dlw.study.domain.Account">
+        <id column="id" property="id"></id>
+        <result column="balance" property="balance"></result>
+        <result column="freeze_amount" property="freezeAmount"></result>
+        <result column="user_id" property="userId"></result>
+    </resultMap>
+    <update id="update">
+        UPDATE account SET balance = #{balance},freeze_amount = #{freezeAmount},
+        update_time = #{updateTime} where user_id = #{userId} and balance > 0
+    </update>
+    <select id="findByUserId" resultType="com.dlw.study.domain.Account">
+        SELECT a.user_id,a.freeze_amount,a.balance FROM account a WHERE a.user_id = #{userId}
+    </select>
+</mapper>

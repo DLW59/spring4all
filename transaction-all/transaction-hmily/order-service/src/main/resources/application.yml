@@ -5,7 +5,7 @@ spring:
   application:
     name: order-service
   datasource:
-    driver-class-name:  com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/tcc_order?useUnicode=true&characterEncoding=utf8
     username: root
     password: 123456
@@ -13,10 +13,10 @@ spring:
 
 eureka:
   client:
-    healthcheck:
-      enabled: true
+#    healthcheck:
+#      enabled: true
     serviceUrl:
-      defaultZone:  http://127.0.0.1:8761/eureka
+      defaultZone: http://127.0.0.1:8761/eureka
   instance:
     hostname: 127.0.0.1
     prefer-ip-address: true
@@ -26,8 +26,8 @@ eureka:
 
 mybatis:
   type-aliases-package: com.dlw.study.domain
-  config-location: classpath:mybatis-config.xml
-#  mapper-locations: classpath:mapper/*.xml 不用xml可不配置
+  config-location: classpath:mybatis.cfg.xml
+  mapper-locations: classpath:mapper/*.xml    #不用xml可不配置
 
 #logging:
 #  config: classpath:logback-admin.xml
@@ -44,8 +44,8 @@ org:
       started: false
       hmilyDbConfig:
         driverClassName: com.mysql.jdbc.Driver
-        url:  jdbc:mysql://127.0.0.1:3306/tcc?useUnicode=true&amp;characterEncoding=utf8
+        url: jdbc:mysql://127.0.0.1:3306/tcc?useUnicode=true&amp;characterEncoding=utf8
         username: root
         password: 123456
 logging:
-  path: transaction-all/transaction-hmily/order-service/logs
+  path: F:/workspace/local/spring4all/transaction-all/transaction-hmily/order-service/logs

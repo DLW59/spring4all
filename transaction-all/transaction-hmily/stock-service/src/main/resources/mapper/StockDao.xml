@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dlw.study.dao.StockDao">
+    <update id="decrease">
+        UPDATE inventory SET total_inventory = #{totalInventory},
+                             lock_inventory = #{lockInventory}
+        WHERE product_id = #{productId} AND total_inventory > 0
+    </update>
+    <select id="findByProductId" resultType="com.dlw.study.domain.Stock">
+        SELECT total_inventory,lock_inventory,product_id FROM inventory WHERE product_id = #{productId}
+    </select>
+</mapper>
