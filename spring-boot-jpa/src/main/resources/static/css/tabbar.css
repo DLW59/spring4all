@@ -1,0 +1,221 @@
+@charset "UTF-8";
+/*
+该样式用于修饰XTabBar控件
+
+相关文件：
+	xui/ctrls/xtabbar.js
+*/
+/*定义了TabBar控件的背景及高度*/
+.tabBar {
+	background: url(../images/tabbar_bg.gif) repeat-x left top;
+	height: 28px;
+	}
+
+/*定义了TabButton的尺寸*/
+.tabButton {
+	position: relative;
+	float: left;
+	height: 28px !important;
+	bottom: 0;
+	z-index: 1;
+	white-space: nowrap;
+	overflow: hidden;
+	cursor: pointer;
+	ms6pngfix: -1;
+	margin-left: -2px;
+	
+	/*IE7*/
+	*width: expression(this.firstChild.clientWidth + 'px');
+}
+
+/*Ie7+、Firefox中标签在未激活时的样式，分别定义了左中右区域的样式*/
+.lTabButton,.cTabButton,.rTabButton {
+	background: url(../images/tab.png) no-repeat 0 0;
+	height: 28px;
+	margin-top: 2px;
+}
+
+.lTabButton {
+	background-image: none; 
+}
+
+.cTabButton {
+	/*background-repeat: repeat-x;
+	background-position: 0 -22px;*/
+	background-image: none;
+}
+
+.rTabButton {
+	background-position: 0 -93px;
+	width: 2px;
+}
+
+/*
+以ms6形头的样式仅仅是为了修复在Ie6浏览器上的问题，分别定义了左中右区域在标签未激活时的样式
+---------------------------------------------------
+*/
+.ms6_lTabButton {
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src="xui/themes/sky/../images/tab_lbg.png",sizingMethod="image");
+	width: 7px;
+	height: 22px;
+	*width:0px;*/
+	border-right:1px solid #C4C4C4;
+	height:27px; 
+}
+
+.ms6_cTabButton {
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src="xui/themes/sky/../images/tab_bg.png",sizingMethod="scale");
+	height: 22px;*/
+	background-repeat: repeat-x;
+	background-position: 0 -22px;
+	background-image: url(../images/tab.png);
+	height:27px;
+}
+
+.ms6_rTabButton {
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src="xui/themes/sky/../images/tab_rbg.png",sizingMethod="image");
+	width: 7px;
+	height: 22px;*/
+	border-left:1px solid #C4C4C4;
+	height:27px;  
+}
+
+/*定义了第一个按钮与左侧边缘间的空隙*/
+.tabBar_blankBlock {
+	position: relative;
+	float: left;
+	width: 9px;
+	height: 28px;
+	bottom: 1px;
+	overflow: hidden;
+	cursor: default;
+}
+
+/*标签激活后的样式，分别定义了左中右三块区域的样式*/
+.lTabButtonActive,.cTabButtonActive,.rTabButtonActive {
+	background: url(../images/tab_current.png) no-repeat 0 0;
+	height: 24px !important;
+	margin-top: 5px;
+}
+
+.lTabButtonActive {
+	background-position: 0 0;
+	width: 7px;
+}
+
+.cTabButtonActive {
+	background-repeat: repeat-x;
+	background-position: 0 -23px;
+}
+
+.rTabButtonActive {
+	background-position: -10px -46px;
+	width: 21px;
+}
+
+/*右侧更多按钮中的文本样式*/
+span.tabBar_naBtMoreText {
+	position: absolute;
+	font-size: 9px;
+	-webkit-transform: scale(0.75);
+	margin: 8px 0 0 2px;/*firefox*/
+	display: block;
+	z-index: 2;
+	top: 5px;
+	*margin: -10px 0 0 2px;/*ie*/
+	*left: 0;
+	*top: 22px;
+}
+
+/*定义了右侧的功能按钮，更多、最大化、最小化、恢复、关闭按钮*/
+.tabBar_naBtMore,.tabBar_naBtMore_Over,.tabBar_naBtMax,.tabBar_naBtMax_Over,.tabBar_naBtMini,.tabBar_naBtMini_Over,.tabBar_naBtRestore,.tabBar_naBtRestore_Over,.tabButton_naBtClose,.tabButton_naBtClose_Over {
+	border: none;
+	overflow: hidden;
+	background: transparent url(../images/tabbar.gif) no-repeat -10px 0;
+	width: 18px;
+	height: 18px;
+	display: block;
+	cursor: pointer;
+	right: 5px;
+    position: absolute;
+	padding:0px;
+	top: 10px;
+	z-index: 100;
+}
+
+.tabBar_naBtMore_Over {
+	background-position: -70px -18px;
+}
+
+/*最大化按钮*/
+.tabBar_naBtMax {
+	background-position: -52px 0;
+}
+
+.tabBar_naBtMax_Over {
+	background-position: -52px -18px;
+}
+
+/*最小化按钮*/
+.tabBar_naBtMini {
+	background-position: -34px 0;
+}
+
+.tabBar_naBtMini_Over {
+	background-position: -34px -18px;
+}
+
+/*恢复按钮*/
+.tabBar_naBtRestore {
+	background-position: -16px 0;
+}
+
+.tabBar_naBtRestore_Over {
+	background-position: -16px -18px;
+}
+
+/*关闭按钮*/
+.tabButton_naBtClose {
+	background-position: 0 0;
+	width: 16px;
+	visibility: hidden;
+	margin-right: 3px;
+}
+
+.cTabButtonActive .tabButton_naBtClose, .cTabButton_Over .tabButton_naBtClose {
+	visibility: visible;
+}
+
+.tabButton_naBtClose_Over {
+	background-position: 0 -18px;
+	width: 16px;
+	margin-right: 3px;
+}
+
+/*标签文本正常与激活时的样式*/
+.tabButton_caption,.tabButton_active_caption {
+	-moz-user-select: none;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 12px;
+	color: #000000;
+	padding: 0 10px;
+  min-width: 30px;
+}
+.xtabbar_icon{
+	margin-left: 6px !important;
+}
+.tabButton_supcaption{
+	background:#e96c4c;
+  font-size: 9px;
+  -webkit-transform: scale(0.75);
+  padding: 2px 3px;
+  margin-left:8px;
+  color: #fff;
+  line-height: 9px;
+  border-radius:2px;
+  display: inline-block;
+  *display: inline;
+}

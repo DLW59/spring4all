@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>组件使用</title>
+    <link rel="stylesheet" href="/css/minireset.css/minireset.css">
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/animate.css/animate.min.css">
+    <link rel="stylesheet" href="/css/common/override.css">
+    <link rel="stylesheet" href="/lib/ued-components-latest/theme-default/ued-components.css">
+    <script src="/lib/vue/vue.latest.js"></script>
+    <script src="/lib/axios/axios.min.js"></script>
+    <script src="/lib/element-ui/element-ui.latest.js"></script>
+    <!--业务组件-->
+    <script src="/lib/ued-components-latest/ued-components.js"></script>
+    <!--下面的ES6 polyfill必须放到库文件之后，项目代码之前-START-->
+    <script src="/lib/es6-shim/es6-shim.min.js"></script>
+    <script src="/lib/babel-polyfill/polyfill.min.js"></script>
+</head>
+<body>
+<div id="app" class="main-panel">
+    <el-dropdown>
+        <el-button type="primary">
+            更多菜单<i class="el-icon-arrow-down el-icon--right"></i>
+        </el-button>
+        <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>黄金糕</el-dropdown-item>
+            <el-dropdown-item>狮子头</el-dropdown-item>
+            <el-dropdown-item>螺蛳粉</el-dropdown-item>
+            <el-dropdown-item>双皮奶</el-dropdown-item>
+            <el-dropdown-item>蚵仔煎</el-dropdown-item>
+        </el-dropdown-menu>
+    </el-dropdown>
+    <el-dropdown split-button type="primary" @click="handleClick">
+        更多菜单
+        <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>黄金糕</el-dropdown-item>
+            <el-dropdown-item>狮子头</el-dropdown-item>
+            <el-dropdown-item>螺蛳粉</el-dropdown-item>
+            <el-dropdown-item>双皮奶</el-dropdown-item>
+            <el-dropdown-item>蚵仔煎</el-dropdown-item>
+        </el-dropdown-menu>
+    </el-dropdown>
+
+
+</div>
+
+    <script type="text/javascript">
+        new Vue({
+            el:'#app',
+            data:function () {
+                return {
+                    //表格穿梭数据
+                    transferResult1: [],
+                    users1: []
+                }
+            },
+            methods: {
+                handleClick() {
+                    alert('button click');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

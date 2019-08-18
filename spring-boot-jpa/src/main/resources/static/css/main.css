@@ -1,0 +1,110 @@
+@import "./global.css";
+#app{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+header{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #316190;
+  color: #fff;
+  box-sizing: border-box;
+}
+.logo{
+  display: flex;
+  align-items: center;
+}
+.logo .name{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 20px;
+  padding-left: 20px;
+}
+.profile{
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.profile-user{
+  padding-right: 20px;
+}
+.profile-user .user-icon{
+  font-size: 20px;
+}
+.profile-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../images/bg-directories.png") center center;
+  padding-bottom: 40px;
+  padding-top: 50px;
+}
+.directories-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.directories-row {
+  display: flex;
+  justify-content: space-around;
+}
+.directory {
+  margin: 30px 50px;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+.directory-icon{
+  transform: rotate(0deg) scale(1);
+  transition: all 0.5s ease-in-out;
+  transform-origin: center center;
+}
+.directory-icon:hover{
+  transform: rotate(360deg) scale(1.5);
+  transition: all 1s ease-in-out;
+}
+.directory-title{
+  margin-top: 20px;
+}
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 40px;
+  line-height: 40px;
+  color: #8F929B;
+  font-size: 14px;
+  text-align: center;
+}
+.el-dropdown{
+  color: #fff;
+}
+.el-dropdown-menu {
+    margin: 5px 0;
+    background-color: #316190;
+    border: 0px; 
+    box-shadow: none; 
+    padding: 6px 0;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100px;
+}

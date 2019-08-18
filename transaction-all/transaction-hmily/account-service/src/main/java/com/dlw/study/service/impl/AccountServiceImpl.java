@@ -16,11 +16,15 @@ import java.util.Date;
  * @author dengliwen
  * @date 2018/11/25
  */
-@Service
+@Service("accountServiceImpl")
 public class AccountServiceImpl implements AccountService {
 
+    private final AccountDao accountDao;
+
     @Autowired
-    private AccountDao accountDao;
+    public AccountServiceImpl(AccountDao accountDao) {
+        this.accountDao = accountDao;
+    }
 
     @Override
     @Hmily(confirmMethod = "confirmPayment",cancelMethod = "cancelPayment")

@@ -1,5 +1,5 @@
 server:
-  port: 10000
+  port: 10001
 spring:
   application:
     name: spring-boot-kafka
@@ -7,18 +7,18 @@ spring:
     template:
       default-topic: test   #默认topic
     producer:
-      bootstrap-servers: hadoop02:9092
+      bootstrap-servers: localhost:9092
     consumer:
-      bootstrap-servers: hadoop02:9092
+      bootstrap-servers: localhost:9092
       group-id: cgroup
     listener:
       concurrency: 3
-  boot:
-    admin:
-      client:
-        url: http://localhost:9999  #springboot服务端地址
-        instance:
-          prefer-ip: true
+#  boot:
+#    admin:
+#      client:
+#        url: http://localhost:9999  #springboot服务端地址
+#        instance:
+#          prefer-ip: true
 
 management:
   endpoints:

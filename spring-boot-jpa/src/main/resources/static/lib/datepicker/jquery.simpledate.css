@@ -1,0 +1,162 @@
+/***year***/
+
+div.ym {
+	width: 225px;
+	position: absolute;
+	left: 5px;
+}
+
+.ym div.year {
+	width: 106px;
+	height: 198px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	padding-top: 5px;
+	padding-left: 5px;
+	float: left;
+}
+
+.ym .month {
+	width: 106px;
+	height: 198px;
+	border: 1px solid #cccccc;
+	border-left: none;
+	background-color: #ffffff;
+	padding-top: 5px;
+	padding-left: 5px;
+	float: right;
+}
+
+div.ym .list {
+	height: 165px;
+}
+
+div.ym .list a {
+	display: block;
+	height: 26px;
+	width: 44px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	float: left;
+	color: #333333;
+	text-decoration: none;
+	text-align: center;
+	line-height: 26px;
+	background-color: #eeeeee;
+	font-size: 12px;
+	_display:inline;
+}
+
+div.ym .list a.on {
+	background-color: #5D90AF;
+	color: #ffffff;
+}
+
+div.ym .list a:hover {
+	background-color: #d1e4fe;
+}
+
+div.ym .list a.on:hover {
+	/*color:#488dd1;*/
+	background-color: #488dd1;
+	color: #ffffff;
+}
+
+div.ym .list a.disabled {
+	background-color: #eeeeee;
+	color:#cccccc;
+	cursor:default;
+}
+
+.ym div.year .page {
+	margin: 5px;
+	float: none;
+}
+
+.ym div.year .page a.left,div.year .page a.right {
+	width: 17px;
+	height: 17px;
+	display: block;
+	_display:inline;
+}
+
+.ym div.year .page a {
+	background:url(ars.gif) no-repeat;
+}
+
+.ym div.year .page a.left {
+	background-position: 0px 0px;
+	float: left;
+	margin-left: 12px;
+}
+
+.ym div.year .page .end a.left {
+	background-position: -17px 0px;
+	cursor:default;
+}
+
+.ym div.year .page a.right {
+	background-position: 0px -19px;
+	float: right;
+	margin-right: 17px;
+}
+
+.ym div.year .page .end a.right {
+	background-position: -17px -19px;
+	cursor:default;
+}
+
+.ym .foot {
+	float:right;
+	border: 1px solid #cccccc;
+	border-top: none;
+	height: 33px;
+	line-height: 33px;
+	text-align: right;
+	width: 223px;
+	_display: inline;
+	background: #F2F1EC;
+	zoom:1;
+}
+
+.ym .foot .mp {
+	margin: 4px 0px;
+	_display: inline;
+}
+
+
+.abtn {
+	font-size: 12px;
+	float: right;
+	margin-right: 10px;
+	color:#5D8FB0;
+}
+
+.abtn:hover {
+	text-decoration: none;
+	color: #5D8FB0;
+}
+
+.foot .mp .btn {
+	display:block;
+	background: url("../images/bg_btn.gif") no-repeat 0px -76px;
+	height: 26px;
+	color:#2A5972;
+	width: 54px;
+	border: 0px;
+	font-size: 12px;
+	margin: 5px;
+	float: right;
+	text-align: center;
+	padding:0px;
+	cursor: pointer;
+	_display:inline;
+	text-decoration: none;
+}
+
+
+.foot .mp .btn span {
+	line-height: 26px;
+}
+
+/***end***/

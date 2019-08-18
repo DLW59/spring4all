@@ -1,0 +1,123 @@
+/* html,body,#app,.el-row,.el-col { */
+
+::-webkit-scrollbar {
+	  width: 10px;
+	  height: 10px;
+} /* 这是针对缺省样式 (必须的) */
+::-webkit-scrollbar-track {
+	box-shadow: 0 0 6px rgba(0,0,0,0.3) inset;
+    border-radius: 10px;
+} /* 滚动条的滑轨背景颜色 */
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+    /* box-shadow: 0 0 6px rgba(0,0,0,0.3) inset; */
+    background-color: #ccc;
+} /* 滑块颜色 */
+
+/* ::-webkit-scrollbar-button {
+	  background-color: #7c2929;
+	  height: 10px;
+	  width: 10px;
+	  border-radius: 5px;
+} 滑轨两头的监听按钮颜色
+
+::-webkit-scrollbar-corner {
+	  background-color: black;
+} 横向滚动条和纵向滚动条相交处尖角的颜色
+ */
+html,body,#app {
+	height:100%;
+}
+.bg-purple-dark {
+	background:#99a9bf;
+}
+.bg-purple {
+	background:#e5e9f2;
+}
+.no-margin {
+	margin-left:0 !important;
+	margin-right:0 !important;
+	margin-top:0 !important;
+	margin-bottom:0 !important;
+}
+.grid-content {
+	min-height:30px;
+	line-height:30px;
+	padding-left:10px;
+}
+.row-bg {
+	padding:10px 0;
+	background-color:#f9fafc;
+}
+.toolbar {
+	display:inline-block;
+	height:40px;
+	line-height:40px;
+	width:100%;
+}
+.transfer-edit {
+	text-align:center;
+	line-height:7;
+	width:60px;
+	box-sizing:border-box;
+	float:left;
+}
+.transfer-table {
+	width:calc(50% - 30px);
+	box-sizing:border-box;
+	float:left;
+}
+/* .el-tree {
+	height: calc(100% - 50px);
+	overflow: hidden;
+} */
+/* .el-table .el-button--primary {
+	color:#47b2fb;
+	background-color:transparent;
+	border-color:transparent;
+	border-left-color:transparent !important;
+	border-right-color:transparent !important;
+} */
+.el-collapse-item__header > div{
+	display: inline-block;
+    width: calc(100% - 25px);
+}
+.transfer-wrapper{
+	text-align: center;
+}
+.el-transfer{
+	text-align: left;
+    display: inline-block;
+}
+
+[v-cloak] {
+  display:none !important;
+}
+
+
+/*el-dropdown*/
+/* .el-dropdown-menu{
+    color: #949494;
+} */
+
+
+.text-primary {
+    color: #33b78e  !important;
+}
+
+.text-secondary{
+    color: #8492a6 !important;
+}
+
+.text-success {
+    color: #13CE66 !important;
+}
+
+.text-danger {
+    color: #FF4949 !important;
+}
+
+.text-warning {
+    color: #f7ba2a !important;
+}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
 	<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
-	<property name="LOG_HOME" value="H:\\idea\\workspace\\git\\spring4all\\springboot-kafka\\logs"/>
+	<property name="LOG_HOME" value="F:\\workspace\\local\\spring4all\\springboot-kafka\\logs"/>
 	<include resource="org/springframework/boot/logging/logback/base.xml"/>
 	<!-- 按照每天生成日志文件-错误日志 -->
 	<appender name="ERR_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">

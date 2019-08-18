@@ -1,0 +1,27 @@
+@media screen and (max-width: 414px) {
+	#app{
+	    min-height:500px;
+	}
+	main {
+	    width: 100%;
+	    justify-content: flex-start;
+	    padding: 100px 50px;
+	    flex-direction: column;
+	}
+	
+	.intro {
+	    flex: 0;
+	    height: auto;
+	}
+	
+	.intro-img{
+	    display: none;
+	}
+	
+	.login-box {
+	    width: 100%;
+	}
+	footer{
+		display: none;
+	}
+}

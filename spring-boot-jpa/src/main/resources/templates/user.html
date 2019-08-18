@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>user</title>
+    <link rel="stylesheet" href="/css/minireset.css/minireset.css">
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/animate.css/animate.min.css">
+    <link rel="stylesheet" href="/css/common/override.css">
+    <link rel="stylesheet" href="/lib/ued-components-latest/theme-default/ued-components.css">
+    <script src="/lib/vue/vue.latest.js"></script>
+    <script src="/lib/axios/axios.min.js"></script>
+    <script src="/lib/element-ui/element-ui.latest.js"></script>
+    <!--业务组件-->
+    <script src="/lib/ued-components-latest/ued-components.js"></script>
+    <!--下面的ES6 polyfill必须放到库文件之后，项目代码之前-START-->
+    <script src="/lib/es6-shim/es6-shim.min.js"></script>
+    <script src="/lib/babel-polyfill/polyfill.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <kf-table
+            ref="userTable"
+            :data="userTableData"
+
+    >
+        <div slot="tools" class="tools justify-between">
+            <el-form inline :model="userSearchForm">
+                <el-form-item>
+                    <el-input
+                            v-model="userSearchForm.key"
+                            placeholder="请输入关键字"
+                    >
+                        <el-button
+                                slot="append"
+                                icon="bm-icon-search"
+                                title="点击查询"
+                                @click="fetchParamsData"
+                        ></el-button>
+                    </el-input>
+                </el-form-item>
+            </el-form>
+            <div class="tools-btns">
+                <kf-button
+                        button-type="custom"
+                        type="primary"
+                        comp-name="新增参数"
+                        icon="el-icon-plus"
+                        @click="openUserTableDialog('add')"
+                >新增用户
+                </kf-button>
+            </div>
+        </div>
+        <el-table-column type="selection" fixed="left"></el-table-column>
+        <el-table-column
+                prop="username"
+                label="用户名"
+                show-overflow-tooltip
+        ></el-table-column>
+        <el-table-column
+                prop="age"
+                label="年龄"
+                show-overflow-tooltip
+        ></el-table-column>
+        <el-table-column
+                prop="sex"
+                label="性别"
+                show-overflow-tooltip
+        ></el-table-column>
+        <el-table-column
+                prop="createTime"
+                label="加入时间"
+                show-overflow-tooltip
+        ></el-table-column>
+        <!--<el-table-column-->
+        <!--prop="paramStatus"-->
+        <!--label="状态"-->
+        <!--width="80"-->
+        <!--&gt;-->
+        <!--<template slot-scope="scope">-->
+        <!--<el-tag-->
+        <!--:type="scope.row.paramStatus === '1' ? 'success' : 'warning'"-->
+        <!--close-transition-->
+        <!--&gt;-->
+        <!--{{ scope.row.paramStatus === '1' ? '正常' : '失效' }}-->
+        <!--</el-tag>-->
+        <!--</template>-->
+        <!--</el-table-column>-->
+        <!--<el-table-column-->
+        <!--prop="paramRemark"-->
+        <!--show-overflow-tooltip-->
+        <!--label="备注"-->
+        <!--min-width="120"-->
+        <!--&gt;</el-table-column>-->
+        <el-table-column label="操作" width="80">
+            <template slot-scope="scope">
+                <kf-button
+                        button-type="edit"
+                        comp-name="编辑"
+                        @click="editUserTableRow(scope.row, scope.$index)"
+                ></kf-button>
+                <kf-button
+                        button-type="delete"
+                        comp-name="删除"
+                        @click="deleteUserTableRow(scope.row, scope.$index)"
+                ></kf-button>
+            </template>
+        </el-table-column>
+        <div slot="editForm">
+            <el-form
+                    :model="userForm"
+                    ref="userForm"
+                    :rules="userFormRules"
+                    label-width="120px"
+            >
+                <el-form-item label="用户名" prop="username">
+                    <el-input v-model="userForm.username" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="年龄" prop="age">
+                    <el-input v-model="userForm.age" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="性别" prop="sex">
+                    <el-input v-model="userForm.sex" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="角色" prop="role">
+                    <el-dropdown trigger="click">
+                        <el-dropdown-menu slot="dropdown">
+                            <el-input type="hidden" :value="role.id"></el-input>
+                            <el-dropdown-item v-for="(role,index) of roleFormData"
+                                              :key="index"
+                                              :value="role.roleName"
+                            >{{role.roleName}}</el-dropdown-item>
+
+                        </el-dropdown-menu>
+                    </el-dropdown>
+                </el-form-item>
+                <!--<el-form-item label="参数值" prop="paramValue">-->
+                <!--<el-input v-model="userForm.paramValue" auto-complete="off"></el-input>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="备注" prop="paramRemark">-->
+                <!--<el-input v-model="userForm.paramRemark" auto-complete="off"></el-input>-->
+                <!--</el-form-item>-->
+                <!--<el-form-item label="状态" prop="paramStatus">-->
+                <!--<el-switch-->
+                <!--v-model="userForm.paramStatus"-->
+                <!--on-color="#15D592"-->
+                <!--off-color="#C0CCDA"-->
+                <!--active-text="启用"-->
+                <!--active-value="1"-->
+                <!--inactive-text="停用"-->
+                <!--inactive-value="0"-->
+                <!--&gt;</el-switch>-->
+                <!--</el-form-item>-->
+            </el-form>
+        </div>
+        <div slot="formBtn">
+            <kf-button
+                    button-type="cancel"
+                    comp-name="取消"
+                    @click="closeUserTableDialog"
+            >取 消
+            </kf-button>
+            <kf-button
+                    button-type="save"
+                    comp-name="确定"
+                    @click="saveUserTableData"
+            >确 定
+            </kf-button>
+        </div>
+    </kf-table>
+
+
+    <!--规则表单-->
+    <template>
+        <div>
+            <el-form :model="formData3" :inline="true" ref="formData3" label-width="65px" size="medium">
+                <el-row v-for="(item,index) in formData3.powerAttrList" :key="index" style="border-bottom: 1px solid #f0f0f0;padding: 10px;">
+                    <el-form-item label="参数名"
+                                  :prop="'powerAttrList.' + index + '.fieldDesc'"
+                                  :rules="[{ required: true, message: '参数名不能为空',trigger: 'change'},{max: 32, message: '不超过32个字符', trigger: 'change'}]">
+                        <el-input v-model="item.fieldDesc" placeholder="请输入参数名"/>
+                    </el-form-item>
+                    <el-form-item label="描述"
+                                  :prop="'powerAttrList.' + index + '.fieldName'"
+                                  :rules="[{ required: true, message: '描述不能为空',trigger: 'change'},{max: 32, message: '不超过32个字符', trigger: 'change'}]">
+                        <el-input v-model="item.fieldName" placeholder="请输入描述"/>
+                    </el-form-item>
+                    <el-form-item label="排序"
+                                  :prop="'powerAttrList.' + index + '.fieldSort'"
+                                  :rules="moreRules.fieldSort">
+                        <el-input type="number" v-model="item.fieldSort" autocomplete="off" placeholder="请输入排序"/>
+                    </el-form-item>
+                    <el-button type="danger" v-if="formData3.powerAttrList.length > 1" size="medium" @click="removeRow(index)">
+                        删除
+                    </el-button>
+                </el-row>
+                <el-row>
+                    <el-button type="primary" size="medium" @click="addRow">新增属性</el-button>
+                </el-row>
+            </el-form>
+        </div>
+    </template>
+
+</div>
+
+<script>
+    export default {
+        data() {
+            return {
+                formData3: {
+                    powerAttrList: [{
+                        fieldName: '',
+                        fieldSort: '',
+                        fieldDesc: '',
+                    }],
+                },
+                //新增表单的验证规则
+                moreRules: {
+                    fieldSort: [{required: true, message: '请输入排序', trigger: 'change'},
+                        {
+                            validator: (rule, value, callback) => {
+                                if (value < 0) {
+                                    callback(new Error('必须大于0'));
+                                } else if (value.length > 5) {
+                                    callback(new Error('不超过5位数字'));
+                                } else if (!value) {
+                                    callback(new Error('排序不能为空'));
+                                } else {
+                                    callback();
+                                }
+                            },
+                            trigger: 'change',
+                        },
+                    ],
+                },
+            };
+        },
+        methods: {
+            addRow() {
+                this.formData3.powerAttrList.push({
+                    fieldName: '',
+                    fieldSort: '',
+                    fieldDesc: '',
+                });
+            },
+            // 删除属性列
+            removeRow(index) {
+                this.formData3.powerAttrList.splice(index, 1);
+            },
+        },
+    };
+</script>
+<script>
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                // userTableUrl: '',
+                baseUrl: '/user',
+                baseTableLoading: false,
+                userForm: {
+                    username: '',
+                    age: 0,
+                    sex: '',
+                    role: {
+                        id:'',
+                        roleName:''
+                    }
+                    // paramStatus: '1',
+                    // paramType: '',
+                    // paramValue: '',
+                },
+                userFormRules: {
+                    username: [
+                        {required: true, min: 1, max: 20, message: '长度在 1 到 20 个字符', trigger: 'blur'}
+                    ],
+                    age: [
+                        {required: true, min: 1, max: 3, message: '长度在 1 到 3 个字符', trigger: 'blur'}
+                    ],
+                    sex: [
+                        {required: true, min: 1, max: 2, message: '长度在 1 到 2 个字符', trigger: 'blur'}
+                    ]
+                },
+                userSearchForm: {
+                    key: ''
+                },
+                userTableData: [],
+                roleFormData:[]
+            }
+        },
+        methods: {
+            /**
+             * 更改url重新获取表格数据
+             */
+            fetchParamsData: function () {
+                var self = this
+                // var params = Object.assign({}, this.userSearchForm, {
+                //     t: Math.random()
+                // })
+                // this.userTableUrl = this.$kun.dealUrl('/mock/remote/table/system-params', params)
+                let url = this.baseUrl + '/list' + "?keywords=" + this.userSearchForm.key
+                this.baseTableLoading = true
+                axios.get(url)
+                    .then(function (res) {
+                        console.log(res.data);
+                        self.userTableData = res.data.data.content || []
+                    }).catch(function () {
+                    self.$message.error('获取数据失败')
+                }).finally(function () {
+                    // 关闭Loading
+                    self.baseTableLoading = false
+                })
+            },
+            /**
+             * 编辑时，拷贝一份数据，打开对话框
+             */
+            editUserTableRow: function (row) {
+                // 深度复制需要编辑的对象作为编辑备份
+                this.userForm = this.$kun.cloneDeep(row)
+                this.openUserTableDialog('edit')
+            },
+            /**
+             * 打开对话框
+             * @param {string} type 打开编辑类型，add/edit
+             */
+            openUserTableDialog(type) {
+                if (type === 'add') {
+                    // 打开对话框，设置对话框标题为 '新增'
+                    this.$refs.userTable && this.$refs.userTable.openDialog('新增')
+                } else if (type === 'edit') {
+                    // 打开对话框，设置对话框标题为 '编辑'
+                    this.$refs.userTable && this.$refs.userTable.openDialog('编辑')
+                }
+            },
+            /*
+             * 清空信息，关闭对话框
+             */
+            closeUserTableDialog() {
+                // 关闭前清空表单信息和验证信息
+                this.userForm = {
+                    username: '',
+                    age: '',
+                    sex: '',
+                    // paramStatus: '1',
+                    // paramType: '',
+                    // paramValue: ''
+                }
+                // 清空表单验证信息
+                this.$refs.userForm && this.$refs.userForm.clearValidate()
+                // 关闭对话框
+                this.$refs.userTable && this.$refs.userTable.closeDialog()
+            },
+            /**
+             * 验证表单，保存表单信息，表单数据中包含pks指定属性时会调用put方法，否则调用post方法
+             */
+            saveUserTableData() {
+                // var self = this
+                // this.$refs.userForm.validate(function (valid) {
+                //     if (valid) {
+                //         self.$refs.userTable.updateData(self.userForm).then(function (res) {
+                //             // 保存成功关闭对话框
+                //             self.closeUserTableDialog()
+                //         }).catch(function () {
+                //             console.error('保存失败')
+                //         })
+                //     }
+                // })
+                var self = this
+                this.$refs.userForm.validate(function (valid) {
+                    if (valid) {
+                        if (self.userForm && self.userForm.id) {
+                            self.updateUserTableRow(self.userForm)
+                        } else {
+                            self.addUserTableData(self.userForm)
+                        }
+                    }
+                })
+            },
+
+            addUserTableData(data) {
+                var self = this
+                // var url = self.$kun.dealUrl(this.baseTableUrl + '/add')
+                var url = self.baseUrl + '/add'
+                axios.post(url, data)
+                    .then(function (res) {
+                        console.log('add:', res.data)
+                        if (res.data.code === 0) {
+                            // 按照标准的REST风格，执行新增操作时，新增成功需要返回成功新增这条数据
+                            self.userTableData.unshift(res.data.data)
+                            self.$message.success('保存成功!')
+                        } else {
+                            self.$message.error(res.data.msg)
+                        }
+                        self.closeBaseTableDialog()
+                    }).catch(function () {
+                    self.$message.error('保存失败!')
+                })
+            },
+
+            updateUserTableRow(data) {
+                var self = this
+                // var url = self.$kun.dealUrl(this.baseTableUrl + '/update')
+                var url = this.baseUrl + '/update';
+                axios.put(url, data).then(function (res) {
+                    // 按照标准的REST风格，执行更新操作时，更新成功需要返回成功更新这条数据
+                    console.log(res.data)
+                    var index = self.userTableData.findIndex(function (row) {
+                        return row.id === res.data.data.id
+                    });
+                    self.userTableData.splice(index, 1, res.data.data)
+                    self.$message.success('更新成功!')
+                    self.closeBaseTableDialog()
+                }).catch(function () {
+                    self.$message.error('更新失败!')
+                })
+            },
+            /**
+             * 删除对应行数据，会根据row中的数据，调用DELETE url/:pks接口进行删除
+             */
+            deleteUserTableRow(row) {
+                this.$confirm('此操作将永久删除该条信息, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(function () {
+                    var url = self.baseUrl + '/delete' + '/' + row.id
+                    axios.delete(url).then(function (res) {
+                        if (res.data.code == 0) {
+                            self.$message.success('删除成功!')
+                            self.fetchBaseTableData()
+                        } else {
+                            self.$message.error('删除失败!')
+                        }
+                    }).catch(function () {
+                        self.$message.error('删除失败!')
+                    })
+                }).catch(function () {
+                    self.$message.info('已取消删除')
+                })
+                // this.$refs.userTable.deleteRow(row).then(function (res) {
+                //     console.log(res)
+                // }).catch(function (err) {
+                //     console.error(err)
+                // })
+            }
+        },
+        created() {
+            this.fetchParamsData()
+        }
+    })
+</script>
+
+<style>
+    .tools {
+        width: 100%;
+    }
+</style>
+</body>
+
+</html>

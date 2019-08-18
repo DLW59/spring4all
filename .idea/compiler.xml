@@ -6,23 +6,73 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="account-service" />
+        <module name="aliyun-mq-consumer-server" />
+        <module name="aliyun-mq-producer-server" />
         <module name="common" />
+        <module name="consul-consumer" />
+        <module name="consul-producer" />
+        <module name="eureka-server" />
         <module name="mq-consumer-server" />
         <module name="mq-producer-server" />
+        <module name="order-service" />
+        <module name="spring-boot-admin" />
+        <module name="spring-boot-jpa" />
+        <module name="spring-boot-web" />
+        <module name="springboot-es" />
         <module name="springboot-kafka" />
         <module name="SpringCloudStream-Kafka" />
+        <module name="stock-service" />
+        <module name="tiny-ioc (1)" />
+        <module name="tiny-ioc (2)" />
+        <module name="tiny-ioc (3)" />
+        <module name="tiny-ioc (4)" />
+        <module name="tiny-ioc (5)" />
+        <module name="tiny-spring (1)" />
+        <module name="tiny-spring (2)" />
+        <module name="tiny-spring (3)" />
+        <module name="tiny-spring (4)" />
+        <module name="tiny-spring (5)" />
+        <module name="webflux" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="account-service" target="1.8" />
+      <module name="aliyun-mq-consumer-server" target="1.8" />
+      <module name="aliyun-mq-producer-server" target="1.8" />
       <module name="common" target="1.8" />
+      <module name="consul" target="1.8" />
+      <module name="consul-consumer" target="1.8" />
+      <module name="consul-producer" target="1.8" />
+      <module name="consul-server" target="1.8" />
+      <module name="eureka-server" target="1.8" />
       <module name="mq-common" target="1.5" />
       <module name="mq-consumer-server" target="1.8" />
       <module name="mq-producer-server" target="1.8" />
       <module name="mqc-ommon" target="1.8" />
+      <module name="order-service" target="1.8" />
+      <module name="spring-boot-admin" target="1.8" />
+      <module name="spring-boot-jpa" target="1.8" />
+      <module name="spring-boot-web" target="1.8" />
       <module name="spring4all" target="1.8" />
+      <module name="springboot-es" target="1.8" />
       <module name="springboot-kafka" target="1.8" />
       <module name="springboot-rocketmq" target="1.8" />
       <module name="SpringCloudStream-Kafka" target="1.8" />
+      <module name="stock-service" target="1.8" />
+      <module name="tiny-ioc (1)" target="1.6" />
+      <module name="tiny-ioc (2)" target="1.6" />
+      <module name="tiny-ioc (3)" target="1.6" />
+      <module name="tiny-ioc (4)" target="1.6" />
+      <module name="tiny-ioc (5)" target="1.6" />
+      <module name="tiny-spring (1)" target="1.6" />
+      <module name="tiny-spring (2)" target="1.6" />
+      <module name="tiny-spring (3)" target="1.6" />
+      <module name="tiny-spring (4)" target="1.6" />
+      <module name="tiny-spring (5)" target="1.6" />
+      <module name="transaction-all" target="1.8" />
+      <module name="transaction-hmily" target="1.8" />
+      <module name="webflux" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

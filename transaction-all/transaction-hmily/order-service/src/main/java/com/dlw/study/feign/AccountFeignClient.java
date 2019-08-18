@@ -6,6 +6,7 @@ import org.dromara.hmily.annotation.Hmily;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @author dengliwen
@@ -19,7 +20,7 @@ public interface AccountFeignClient {
      * @param accountDto
      * @return
      */
-    @RequestMapping("payment")
+    @RequestMapping(value = "payment",method = RequestMethod.POST)
     @Hmily
     Boolean payment(@RequestBody AccountDto accountDto);
 }

@@ -15,12 +15,16 @@ import org.springframework.transaction.annotation.Transactional;
  * @author dengliwen
  * @date 2018/11/25
  */
-@Service
+@Service("stockServiceImpl")
 @Slf4j
 public class StockServiceImpl implements StockService {
 
+    private final StockDao stockDao;
+
     @Autowired
-    private StockDao stockDao;
+    public StockServiceImpl(StockDao stockDao) {
+        this.stockDao = stockDao;
+    }
 
     @Override
     @Hmily(confirmMethod = "confirmDecrease",cancelMethod = "cancelDecrease")
@@ -30,7 +34,7 @@ public class StockServiceImpl implements StockService {
         if (stock.getTotalInventory() < dto.getCount()) {
             throw new StockException(-1,"库存不足");
         }
-        stock.setLockInventory(stock.getTotalInventory() - dto.getCount());
+        stock.setTotalInventory(stock.getTotalInventory() - dto.getCount());
         stock.setLockInventory(stock.getLockInventory() + dto.getCount());
         stockDao.decrease(stock);
     }
@@ -48,7 +52,7 @@ public class StockServiceImpl implements StockService {
 
     public void cancelDecrease(StockDto dto) {
         Stock stock = findByProductId(dto.getProductId());
-        stock.setLockInventory(stock.getTotalInventory() + dto.getCount());
+        stock.setTotalInventory(stock.getTotalInventory() + dto.getCount());
         stock.setLockInventory(stock.getLockInventory() - dto.getCount());
         stockDao.decrease(stock);
     }

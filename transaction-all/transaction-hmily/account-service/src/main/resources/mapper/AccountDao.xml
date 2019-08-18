@@ -8,10 +8,10 @@
         <result column="freeze_amount" property="freezeAmount"></result>
         <result column="user_id" property="userId"></result>
     </resultMap>
-    <update id="update">
-        UPDATE account SET balance = #{balance},freeze_amount = #{freezeAmount},
-        update_time = #{updateTime} where user_id = #{userId} and balance > 0
-    </update>
+    <!--<update id="update">-->
+        <!--UPDATE account SET balance = #{account.balance},freeze_amount = #{account.freezeAmount},-->
+        <!--update_time = #{account.updateTime} where user_id = #{account.userId} and balance > 0-->
+    <!--</update>-->
     <select id="findByUserId" resultType="com.dlw.study.domain.Account">
         SELECT a.user_id,a.freeze_amount,a.balance FROM account a WHERE a.user_id = #{userId}
     </select>

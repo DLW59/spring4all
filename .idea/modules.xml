@@ -3,12 +3,39 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/springcloud-stream-kafka/SpringCloudStream-Kafka.iml" filepath="$PROJECT_DIR$/springcloud-stream-kafka/SpringCloudStream-Kafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transaction-all/transaction-hmily/account-service/account-service.iml" filepath="$PROJECT_DIR$/transaction-all/transaction-hmily/account-service/account-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-rocketmq/aliyun-mq-consumer-server/aliyun-mq-consumer-server.iml" filepath="$PROJECT_DIR$/springboot-rocketmq/aliyun-mq-consumer-server/aliyun-mq-consumer-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-rocketmq/aliyun-mq-producer-server/aliyun-mq-producer-server.iml" filepath="$PROJECT_DIR$/springboot-rocketmq/aliyun-mq-producer-server/aliyun-mq-producer-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-rocketmq/common/common.iml" filepath="$PROJECT_DIR$/springboot-rocketmq/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/consul/consul.iml" filepath="$PROJECT_DIR$/consul/consul.iml" />
+      <module fileurl="file://$PROJECT_DIR$/consul/consul-consumer/consul-consumer.iml" filepath="$PROJECT_DIR$/consul/consul-consumer/consul-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/consul/consul-producer/consul-producer.iml" filepath="$PROJECT_DIR$/consul/consul-producer/consul-producer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../elasticsearch-definitive-guide/elasticsearch-definitive-guide.iml" filepath="$PROJECT_DIR$/../elasticsearch-definitive-guide/elasticsearch-definitive-guide.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-rocketmq/mq-consumer-server/mq-consumer-server.iml" filepath="$PROJECT_DIR$/springboot-rocketmq/mq-consumer-server/mq-consumer-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-rocketmq/mq-producer-server/mq-producer-server.iml" filepath="$PROJECT_DIR$/springboot-rocketmq/mq-producer-server/mq-producer-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transaction-all/transaction-hmily/order-service/order-service.iml" filepath="$PROJECT_DIR$/transaction-all/transaction-hmily/order-service/order-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-admin/spring-boot-admin.iml" filepath="$PROJECT_DIR$/spring-boot-admin/spring-boot-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-jpa/spring-boot-jpa.iml" filepath="$PROJECT_DIR$/spring-boot-jpa/spring-boot-jpa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-web/spring-boot-web.iml" filepath="$PROJECT_DIR$/spring-boot-web/spring-boot-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring4all.iml" filepath="$PROJECT_DIR$/spring4all.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-es/springboot-es.iml" filepath="$PROJECT_DIR$/springboot-es/springboot-es.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-kafka/springboot-kafka.iml" filepath="$PROJECT_DIR$/springboot-kafka/springboot-kafka.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-rocketmq/springboot-rocketmq.iml" filepath="$PROJECT_DIR$/springboot-rocketmq/springboot-rocketmq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transaction-all/transaction-hmily/stock-service/stock-service.iml" filepath="$PROJECT_DIR$/transaction-all/transaction-hmily/stock-service/stock-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/step1-container-register-and-get/tiny-ioc (1).iml" filepath="$PROJECT_DIR$/spring/step1-container-register-and-get/tiny-ioc (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/step2-abstract-beanfactory-and-do-bean-initilizing-in-it/tiny-ioc (2).iml" filepath="$PROJECT_DIR$/spring/step2-abstract-beanfactory-and-do-bean-initilizing-in-it/tiny-ioc (2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/step3-inject-bean-with-property/tiny-ioc (3).iml" filepath="$PROJECT_DIR$/spring/step3-inject-bean-with-property/tiny-ioc (3).iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/step4-config-beanfactory-with-xml/tiny-ioc (4).iml" filepath="$PROJECT_DIR$/spring/step4-config-beanfactory-with-xml/tiny-ioc (4).iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/step5-inject-bean-to-bean/tiny-ioc (5).iml" filepath="$PROJECT_DIR$/spring/step5-inject-bean-to-bean/tiny-ioc (5).iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/step10-invite-cglib-and-aopproxy-factory/tiny-spring (1).iml" filepath="$PROJECT_DIR$/spring/step10-invite-cglib-and-aopproxy-factory/tiny-spring (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/step6-invite-application-context/tiny-spring (2).iml" filepath="$PROJECT_DIR$/spring/step6-invite-application-context/tiny-spring (2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/step7-method-interceptor-by-jdk-dynamic-proxy/tiny-spring (3).iml" filepath="$PROJECT_DIR$/spring/step7-method-interceptor-by-jdk-dynamic-proxy/tiny-spring (3).iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/step8-invite-pointcut-and-aspectj/tiny-spring (4).iml" filepath="$PROJECT_DIR$/spring/step8-invite-pointcut-and-aspectj/tiny-spring (4).iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/step9-auto-create-aop-proxy/tiny-spring (5).iml" filepath="$PROJECT_DIR$/spring/step9-auto-create-aop-proxy/tiny-spring (5).iml" />
+      <module fileurl="file://$PROJECT_DIR$/transaction-all/transaction-all.iml" filepath="$PROJECT_DIR$/transaction-all/transaction-all.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transaction-all/transaction-hmily/transaction-hmily.iml" filepath="$PROJECT_DIR$/transaction-all/transaction-hmily/transaction-hmily.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webflux/webflux.iml" filepath="$PROJECT_DIR$/webflux/webflux.iml" />
     </modules>
   </component>
 </project>

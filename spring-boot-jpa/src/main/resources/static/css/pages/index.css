@@ -1,0 +1,92 @@
+main{
+	text-align: center;
+  overflow:auto;
+  background: #f9fafc;
+}
+.channels-wrapper{
+  width: 1120px;
+  height: calc(100% - 100px);
+  margin: 0 auto;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  /* -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  flex-wrap: wrap;
+}
+.channel{
+  width: 220px;
+  height: 220px;
+  margin: 30px;
+  padding: 20px 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.80);
+  border: 1px solid #DDE9F4;
+  border-radius: 4px;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+}
+.channel:hover{
+  background: #FCFDFD;
+  border: 1px solid #E5EFF6;
+  -webkit-box-shadow: 0 2px 30px 0 rgba(13,133,252,0.50);
+          box-shadow: 0 2px 30px 0 rgba(13,133,252,0.50);
+}
+.channel-icon{
+  width: 90px;
+}
+.channel-name{
+  font-size: 16px;
+  color: #1F2D3D;
+}
+.channel-link{
+  display: block;
+  width: 120px;
+  margin-bottom: -80px;
+  height: 30px;
+  line-height: 30px;
+
+  background: #0D85FC;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: margin 0.5s ease-out;
+  transition: margin 0.5s ease-out;
+}
+.channel:hover .channel-link{
+  margin-bottom: 10px;
+
+  -webkit-transition: margin 0.5s ease-in;
+
+  transition: margin 0.5s ease-in;
+}
+.checkout-team__button{
+	background: transparent;
+	color: #fff;
+    border-color: #fff;
+    border-radius: 20px;
+}
+.checkout-team__button:hover,
+.checkout-team__button:active,
+.checkout-team__button.is-active{
+	background: transparent;
+}

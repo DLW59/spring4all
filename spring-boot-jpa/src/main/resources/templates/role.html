@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>角色</title>
+    <link rel="stylesheet" href="/css/minireset.css/minireset.css">
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/animate.css/animate.min.css">
+    <link rel="stylesheet" href="/css/common/override.css">
+    <link rel="stylesheet" href="/lib/ued-components-latest/theme-default/ued-components.css">
+    <script src="/lib/vue/vue.latest.js"></script>
+    <script src="/lib/axios/axios.min.js"></script>
+    <script src="/lib/element-ui/element-ui.latest.js"></script>
+    <!--业务组件-->
+    <script src="/lib/ued-components-latest/ued-components.js"></script>
+    <!--下面的ES6 polyfill必须放到库文件之后，项目代码之前-START-->
+    <script src="/lib/es6-shim/es6-shim.min.js"></script>
+    <script src="/lib/babel-polyfill/polyfill.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <kf-table
+            ref="baseTable"
+            :data="baseTableData"
+            one-screen
+            v-loading="baseTableLoading"
+            layout="total, sizes, prev, pager, next, jumper"
+    >
+        <el-table-column type="selection" fixed="left"></el-table-column>
+        <el-table-column prop="roleCode" label="角色编码"></el-table-column>
+        <el-table-column prop="roleName" label="角色名称"></el-table-column>
+        <el-table-column prop="remark" label="备注"></el-table-column>
+        <el-table-column label="操作" fixed="right">
+            <template slot-scope="scope">
+                <kf-button
+                        button-type="edit"
+                        @click="editBaseTableRow(scope.row, scope.$index)"
+                ></kf-button>
+                <kf-button
+                        button-type="delete"
+                        @click="deleteBaseTableRow(scope.row, scope.$index)"
+                ></kf-button>
+            </template>
+        </el-table-column>
+        <div slot="tools" class="tools justify-between">
+            <el-form :model="baseTableSearchForm">
+                <el-form-item prop="keywords">
+                    <el-input
+                            v-model.trim="baseTableSearchForm.keywords"
+                            placeholder="输入关键字"
+                    >
+                        <el-button
+                                icon="bm-icon-search"
+                                @click="fetchBaseTableData"
+                                slot="append"
+                        ></el-button>
+                    </el-input>
+                </el-form-item>
+            </el-form>
+            <div class="tools-btns">
+                <kf-button button-type="add" @click="openBaseTableDialog('add')"></kf-button>
+            </div>
+        </div>
+        <template slot="editForm">
+            <el-form
+                    :model="baseTableForm"
+                    label-width="120px"
+                    ref="baseTableForm"
+                    :rules="baseTableFormRules"
+            >
+                <el-form-item label="角色名称" prop="roleName">
+                    <el-input v-model.trim="baseTableForm.roleName" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="角色编码" prop="roleCode">
+                    <el-input v-model.trim="baseTableForm.roleCode" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="备注" prop="remark">
+                    <el-input v-model.trim="baseTableForm.remark" auto-complete="off"></el-input>
+                </el-form-item>
+            </el-form>
+        </template>
+        <template slot="formBtn">
+            <kf-button button-type="cancel" @click="closeBaseTableDialog"></kf-button>
+            <kf-button button-type="save" @click="saveBaseTableData">确 定</kf-button>
+        </template>
+    </kf-table>
+</div>
+<script type="text/javascript" >
+
+    new Vue({
+        el:'#app',
+        data:function () {
+            return {
+                baseTableLoading: false,
+                baseTableForm: {
+                    roleCode: '',
+                    roleName: '',
+                    remark: ''
+                },
+                baseTableFormRules: {},
+                baseTableSearchForm: {
+                    keywords: ''
+                },
+                baseTableUrl: '/role',
+                baseTableData: []
+            }
+        },
+        methods: {
+            /**
+             * 清空表单信息，关闭对话框
+             */
+            closeBaseTableDialog() {
+                // 清空表单信息和验证状态
+                this.baseTableForm = {
+                    roleCode: '',
+                    roleName: '',
+                    remark: ''
+                };
+                this.$refs.baseTableForm && this.$refs.baseTableForm.clearValidate()
+                this.$refs.baseTable && this.$refs.baseTable.closeDialog()
+            },
+
+            /**
+             * 根据类型打开对话框，设置对应对话框标题
+             * @param {string} type 打开类型
+             */
+            openBaseTableDialog(type) {
+                if (type === 'add') {
+                    // 打开对话框，设置对话框标题为 '新增'
+                    this.$refs.baseTable && this.$refs.baseTable.openDialog('新增')
+                } else if (type === 'edit') {
+                    // 打开对话框，设置对话框标题为 '编辑'
+                    this.$refs.baseTable && this.$refs.baseTable.openDialog('编辑')
+                }
+            },
+
+            /**
+             * 获取表单信息
+             */
+            fetchBaseTableData() {
+                var self = this
+                // var url = this.$kun.dealUrl(this.baseTableUrl + '/list', this.baseTableSearchForm)
+                // 打开Loading
+                var url = this.baseTableUrl + '/list' + '?keywords=' + self.baseTableSearchForm.keywords
+                this.baseTableLoading = true
+                axios.get(url).then(function(res) {
+                    console.log(res.data.data.content);
+                    self.baseTableData = res.data.data.content || []
+                }).catch(function(err) {
+                    self.$message.error('获取数据失败')
+                }).finally(function() {
+                    // 关闭Loading
+                    self.baseTableLoading = false
+                })
+            },
+
+            /**
+             * 编辑行信息
+             * @param {object} row 行数据
+             */
+            editBaseTableRow(row) {
+                // 深度复制需要编辑的对象作为编辑备份
+                this.baseTableForm = this.$kun.cloneDeep(row)
+                this.openBaseTableDialog('edit')
+            },
+            /**
+             * 保存表单数据，包含id调用更新，否则调用新增
+             */
+            saveBaseTableData() {
+                var self = this
+                this.$refs.baseTableForm.validate(function(valid) {
+                    if (valid) {
+                        if (self.baseTableForm && self.baseTableForm.id) {
+                            self.updateBaseTableRow(self.baseTableForm)
+                        } else {
+                            self.addBaseTableRow(self.baseTableForm)
+                        }
+                    }
+                })
+            },
+            /**
+             * 更新数据
+             * @param {object} data 提交到后台的数据，包含主键id
+             */
+            updateBaseTableRow(data) {
+                var self = this
+                // var url = self.$kun.dealUrl(this.baseTableUrl + '/update')
+                var url = this.baseTableUrl + '/update';
+                axios.put(url, data).then(function(res) {
+                    // 按照标准的REST风格，执行更新操作时，更新成功需要返回成功更新这条数据
+                    console.log(res.data)
+                    var index = self.baseTableData.findIndex(function(row) {
+                        return row.id === res.data.data.id
+                    });
+                    self.baseTableData.splice(index, 1, res.data.data)
+                    self.$message.success('更新成功!')
+                    self.closeBaseTableDialog()
+                }).catch(function() {
+                    self.$message.error('更新失败!')
+                })
+            },
+            /**
+             * 新增数据
+             * @param {object} data 提交到后台的数据，不包含主键id
+             */
+            addBaseTableRow(data) {
+                var self = this
+                // var url = self.$kun.dealUrl(this.baseTableUrl + '/add')
+                var url = self.baseTableUrl + '/add'
+                axios.post(url, data)
+                    .then(function(res) {
+                        if (res.data.code === 0) {
+                            // 按照标准的REST风格，执行新增操作时，新增成功需要返回成功新增这条数据
+                            self.baseTableData.unshift(res.data.data)
+                            self.$message.success('保存成功!')
+                        } else {
+                            self.$message.error(res.data.msg)
+                        }
+                    self.closeBaseTableDialog()
+                }).catch(function() {
+                    self.$message.error('保存失败!')
+                })
+            },
+            /**
+             * 删除行
+             * @param {object} row 行数据，包含主键id
+             * @param {number} index 数据索引
+             */
+            deleteBaseTableRow(row) {
+                var self = this
+                this.$confirm('此操作将永久删除该条信息, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(function() {
+                    // var url = self.$kun.dealUrl(self.baseTableUrl + '/delete' + '/' + row.id)
+                    var url = self.baseTableUrl + '/delete' + '/' + row.id
+                    axios.delete(url).then(function(res) {
+                        // 按照标准的REST风格，执行删除操作时，删除成功需要返回成功删除的数据的主键
+                        // if (res.data.id === row.id) {
+                        //     var index = self.baseTableData.indexOf(row)
+                        //     self.baseTableData.splice(index, 1)
+                        //     self.$message.success('删除成功!')
+                        // } else {
+                        //     self.$message.error('删除失败!')
+                        // }
+                        if (res.data.code == 0) {
+                            self.$message.success('删除成功!')
+                            self.fetchBaseTableData()
+                        } else {
+                            self.$message.error('删除失败!')
+                        }
+                    }).catch(function() {
+                        self.$message.error('删除失败!')
+                    })
+                }).catch(function() {
+                    self.$message.info('已取消删除')
+                })
+            }
+        },
+        created() {
+            this.fetchBaseTableData()
+        }
+    })
+</script>
+<style>
+    .tools {
+        width: 100%;
+    }
+</style>
+</body>
+</html>

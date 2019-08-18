@@ -8,6 +8,7 @@ import com.dlw.study.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.dromara.hmily.common.utils.IdWorkerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -17,7 +18,7 @@ import java.util.Date;
  * @author dengliwen
  * @date 2018/11/24
  */
-@Service
+@Service("orderServiceImpl")
 @Slf4j
 public class OrderServiceImpl implements OrderService {
 
@@ -25,13 +26,14 @@ public class OrderServiceImpl implements OrderService {
     private OrderDao orderDao;
 
     @Autowired
+    @Qualifier("paymentServiceImpl")
     private PaymentService paymentService;
 
     @Override
     public void orderPay(int count, BigDecimal amount) {
         Order order = buildOrder(count, amount);
         int save = orderDao.save(order);
-        if (save > 0) {
+        if (save == 1) {
             paymentService.doPayment(order);
         }
     }

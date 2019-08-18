@@ -3,6 +3,8 @@ package com.dlw.study.controller;
 import com.dlw.study.dto.StockDto;
 import com.dlw.study.service.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class StockController {
 
     @Autowired
+    @Qualifier("stockServiceImpl")
     private StockService stockService;
 
     @PostMapping("/decrease")

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="content"/>
+        <button @click="sub">提交</button>
+        <ul>
+            <my-li :msg="content"></my-li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+
+    Vue.component('my-li',{
+       prop:{
+           msg:String,
+           required:true
+       },
+        template:'<li>{{msg}}</li>'
+    });
+
+    let promise = new Promise(function (resolve, reject) {
+        //成功执行
+        resolve('成功了');
+        //失败执行
+        reject('失败了');
+    });
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                content: ''
+            }
+        },
+        methods: {
+            sub: function () {
+                promise.then(function (v) {
+                    alert(v)
+                }).catch(function (e) {
+                    alert(e)
+                })
+            }
+        }
+    })
+</script>
+</html>

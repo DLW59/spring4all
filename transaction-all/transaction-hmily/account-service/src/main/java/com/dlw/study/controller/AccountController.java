@@ -3,6 +3,8 @@ package com.dlw.study.controller;
 import com.dlw.study.dto.AccountDto;
 import com.dlw.study.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AccountController {
 
     @Autowired
+    @Qualifier("accountServiceImpl")
     private AccountService accountService;
 
     @PostMapping("/payment")

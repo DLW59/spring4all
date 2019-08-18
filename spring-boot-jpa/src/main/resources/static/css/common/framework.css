@@ -1,0 +1,428 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+
+#app {
+    height: 100%;
+    width: 100%;
+    background: #F4F8F9;
+}
+
+header {
+	width: 100%;
+	display: flex;
+    height: 45px;
+    line-height: 45px;
+    background: #324057;
+    color: #fff;
+}
+
+.logo {
+    height: inherit;
+    line-height: inherit;
+    width: 180px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background: transparent;
+    text-align: center;
+    border-right: 1px solid #475669;
+}
+
+.logo__pic {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-preferred-size: 50px;
+        flex-basis: 50px;
+    cursor: pointer;
+}
+
+.logo h1 {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    height: 100%;
+    font-size: 18px;
+    background: transparent;
+    color: #fff;
+}
+
+.menu-toggle{
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	border-bottom: solid 1px #ebeff0;
+	color: #99a9bf;
+}
+
+.sidenav-toggle {
+	align-self: center;
+	/* margin-left: 14px; */
+	font-size: 16px;
+	cursor: pointer;
+}
+.profile {
+	flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+}
+
+.profile > div{
+	margin: 0 20px;
+    height: initial;
+    line-height: initial;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    cursor: pointer;
+}
+.profile > div.user{
+	margin: 0;
+    padding: 0 20px;
+    height: 100%;
+    border-left: 1px solid #475669;
+}
+
+.dropdown-link {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.channels-content {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+
+.channels-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 80px;
+    height: 80px;
+    margin: 15px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #556677;
+    cursor: pointer;
+    -webkit-transition: border-color .3s ease-out;
+    transition: border-color .3s ease-out;
+}
+
+.channels-item__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.channels-item.active,
+.channels-item:hover {
+    border-color: #DDE9F4;
+    -webkit-transition: border-color .3s ease-in;
+    transition: border-color .3s ease-in;
+}
+/* .channels-item.active{
+	border-color: #0d85fc;
+} */
+
+.channels-item__icon {
+    width: 40px;
+}
+
+main {
+    height: calc(100% - 45px);
+    width: 100%;
+    display: flex;
+}
+
+aside {
+	position: relative;
+	width: 180px;
+    height: 100%;
+    background: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    
+    transition: width .3s ease-in-out;
+}
+
+aside.is-shrink{
+	width: 50px;
+	overflow: unset;
+}
+
+.menu-search{
+	padding: 0 10px;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #EBEFF0;
+}
+.menu-first-level,
+.menu-first-level .menu-preicon{
+	font-weight: bold;
+}
+.menu-preicon{
+	display: inline-block;
+	width: 15px;
+	margin-right: 5px;
+}
+.menu-leaf-icon{
+	display: inline-block;
+	width: 5px;
+	height: 5px;
+	margin-right: 5px;
+	background: currentColor;
+}
+footer {
+    position: fixed;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: #8CA0B3;
+}
+
+.main-content {
+	flex: 1;
+    height: 100%;
+    padding: 10px 0 0 10px;
+    overflow: auto;
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.1) inset;
+    background-color: #F9FAFC;
+}
+main.is-hidden-aside .main-content{
+	padding: 10px 0 0;
+}
+#frameworkTabs{
+	height: 100%;
+}
+#frameworkTabs .el-tabs__header{
+	margin-bottom: 0;
+}
+#frameworkTabs .el-tabs__content{
+	height: calc(100% - 40px);
+	margin-top: 10px;
+	
+	background-color: #fff;
+}
+#frameworkTabs .el-tab-pane{
+	height: 100%;
+}
+#frameworkTabs .el-tabs__active-bar{
+	bottom: auto;
+	top: 0;
+}
+#frameworkTabs .el-tabs__item{
+	background-color: #E9EDEE;
+	height: 30px;
+	line-height: 30px;
+}
+#frameworkTabs .el-tabs__item + .el-tabs__item{
+	box-shadow:  0 0 1px 1px #fff;
+}
+#frameworkTabs .el-tabs__item.is-active{
+	background-color: #fff;
+}
+#frameworkTabs .el-tabs__item .el-icon-close{
+	background-color: #fff;
+}
+#frameworkTabs .el-tabs__item .el-icon-close:hover{
+	color: inherit;
+}
+#frameworkTabs .el-tabs__item .el-icon-close:before{
+	transform: scale(.5,.5);
+}
+.iframe-wrapper{
+	height: 100%;
+}
+.iframe-wrapper iframe{
+	min-height: 100%;
+}
+
+.right-slide,
+.teams-list {
+    position: absolute;
+    top: 45px;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    overflow-y: auto;
+    background: #fff;
+    -webkit-box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.teams-list {
+    width: 290px;
+    overflow-y: auto;
+}
+
+.current-team {
+    padding: 15px;
+    height: 80px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    background: #F4F8F9;
+    font-size: 14px;
+    color: #475669;
+}
+
+.current-team-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 16px;
+}
+.team-name-wrapper{
+	margin-left: 20px;
+}
+
+.team-icon {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    line-height: 40px;
+    border-radius: 50%;
+    font-size: 25px;
+    color: #0D85FC;
+    border: 2px solid #0D85FC;
+    text-align: center;
+}
+
+.current-team h4 {
+    color: #99A9BF;
+    font-size: 12px;
+}
+
+.current-team-info .team-name {
+	font-size: 14px;
+	color: #0D85FC;
+}
+
+.team-overview {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    text-align: center;
+}
+
+.team-overview-heading {
+    color: #475669;
+}
+
+.team-overview-counts {
+    color: #171C22;
+}
+
+.team-overview-heading span {
+    color: #354052;
+    margin-right:4px;
+}
+
+.teams {
+    margin: 0 25px;
+    font-size: 16px;
+    color: #8492A6;
+}
+
+.team {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 10px;
+    height: 40px;
+    border-bottom: 1px solid #DBF1FF;
+}
+
+.team-checkout {
+    display: none;
+    margin-right: 10px;
+}
+
+.team:hover .team-checkout {
+    display: inline-block;
+    opacity: 1;
+}
+
+.checkout-team__button{
+	background: transparent;
+	color: #fff;
+    border-color: #fff;
+    border-radius: 20px;
+}
+.checkout-team__button:hover,
+.checkout-team__button:active,
+.checkout-team__button.is-active{
+	background: transparent;
+}
+.quick-entrance__button{
+	border-radius: 20px;	
+}
+.el-table__row{
+	cursor: pointer;
+}

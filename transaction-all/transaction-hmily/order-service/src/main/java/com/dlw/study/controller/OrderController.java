@@ -3,6 +3,8 @@ package com.dlw.study.controller;
 import com.dlw.study.dto.ResponseData;
 import com.dlw.study.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +21,9 @@ import java.math.BigDecimal;
 public class OrderController {
 
     @Autowired
+    @Qualifier("orderServiceImpl")
     private OrderService orderService;
+
 
     @PostMapping("/pay")
     public ResponseData orderPay(@RequestParam("count") int count,

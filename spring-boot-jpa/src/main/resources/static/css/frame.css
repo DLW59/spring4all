@@ -1,0 +1,75 @@
+#app{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.el-col{
+	padding-top: 0px!important;
+}
+main{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  background: none;
+  padding-bottom: 0px;
+  padding-top: 50px;
+}
+.leftMenuMax{
+ 	width: 15%;
+    height: 100%;
+    background-color: #eff2f7;
+    float: left;
+}
+.leftMenuMin{
+ 	width: 0;
+    height: 100%;
+    background-color: #eff2f7;
+    float: left;
+}
+.rightContentMin{
+	width: 85%;
+    background-color: #e5e9f2; 
+    padding: 0 10px;
+    right: 0px;
+    position: absolute;
+}
+.rightContentMax{
+	width: 85%;
+    background-color: #e5e9f2; 
+ 	padding: 0 10px;
+    right: 0px;
+    position: absolute;    
+}
+.topMenu {
+    background-color: #eff2f7;
+    margin: 0;
+    border-bottom: 1px solid #d3dce6;
+    padding: 0;
+    position: relative;
+    /*margin: 0 0 15px;*/
+    line-height: 41px;
+    height: 41px;
+    padding-left:5px;
+}
+.el-tabs--border-card {
+    border: 0px;
+}
+.el-card, .el-menu--horizontal .el-submenu>.el-menu, .el-tabs--border-card {
+    box-shadow: none;
+}
+.el-input__inner {
+    /*margin-left: 5px;*/
+    width: 95%;
+}
+.el-tabs__item {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.el-input-group {
+    width: 98%!important;
+}
+.el-tabs__content{
+	padding: 0!important;
+}

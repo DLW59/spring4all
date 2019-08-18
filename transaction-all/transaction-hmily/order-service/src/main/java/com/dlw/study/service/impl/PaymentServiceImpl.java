@@ -1,5 +1,6 @@
 package com.dlw.study.service.impl;
 
+import com.dlw.study.dao.OrderDao;
 import com.dlw.study.domain.Order;
 import com.dlw.study.dto.AccountDto;
 import com.dlw.study.dto.StockDto;
@@ -12,34 +13,40 @@ import com.dlw.study.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.dromara.hmily.annotation.Hmily;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 /**
  * @author dengliwen
  * @date 2018/11/24
  */
-@Service
+@Service("paymentServiceImpl")
 @Slf4j
 public class PaymentServiceImpl implements PaymentService {
 
 
-    @Autowired
-    private OrderService orderService;
+    private final OrderDao orderDao;
+
+    private final AccountFeignClient accountFeignClient;
+
+    private final StockFeignClient stockFeignClient;
 
     @Autowired
-    private AccountFeignClient accountFeignClient;
+    public PaymentServiceImpl(OrderDao orderDao, AccountFeignClient accountFeignClient, StockFeignClient stockFeignClient) {
+        this.orderDao = orderDao;
+        this.accountFeignClient = accountFeignClient;
+        this.stockFeignClient = stockFeignClient;
+    }
 
-    @Autowired
-    private StockFeignClient stockFeignClient;
     /**
      * 开启分布式事务
      * @param order
      */
     @Override
-    @Hmily(confirmMethod = "confirmOrder",cancelMethod = "cancel")
+    @Hmily(confirmMethod = "confirmOrder",cancelMethod = "cancelOrder")
     public void doPayment(Order order) {
         order.setStatus(OrderStatusEnum.PAYING.getCode());
-        int update = orderService.update(order);
+        int update = orderDao.update(order);
         if (update <= 0) {
             throw new OrderException(-1,"更新订单状态失败");
         }
@@ -65,13 +72,13 @@ public class PaymentServiceImpl implements PaymentService {
      */
     public void confirmOrder(Order order) {
         order.setStatus(OrderStatusEnum.PAY_SUCCESS.getCode());
-        orderService.update(order);
+        orderDao.update(order);
         log.info("=========进行订单confirm操作完成================");
     }
 
     public void cancelOrder(Order order) {
         order.setStatus(OrderStatusEnum.PAY_FAIL.getCode());
-        orderService.update(order);
+        orderDao.update(order);
         log.info("=========进行订单cancel操作完成================");
     }
 }

@@ -19,18 +19,20 @@
     <properties>
         <hmily-veraion>1.2.1-RELEASE</hmily-veraion>
         <disruptor.version>3.4.0</disruptor.version>
+        <spring.data.mongodb.version>2.0.8.RELEASE</spring.data.mongodb.version>
+        <mongo.driver.version>3.5.0</mongo.driver.version>
     </properties>
 
     <dependencies>
-        <dependency>
+       <!-- <dependency>
             <groupId>org.dromara</groupId>
             <artifactId>hmily-core</artifactId>
             <version>${hmily-veraion}</version>
             <exclusions>
-                <!--<exclusion>-->
-                    <!--<groupId>log4j</groupId>-->
-                    <!--<artifactId>log4j</artifactId>-->
-                <!--</exclusion>-->
+                &lt;!&ndash;<exclusion>&ndash;&gt;
+                    &lt;!&ndash;<groupId>log4j</groupId>&ndash;&gt;
+                    &lt;!&ndash;<artifactId>log4j</artifactId>&ndash;&gt;
+                &lt;!&ndash;</exclusion>&ndash;&gt;
                 <exclusion>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-log4j12</artifactId>
@@ -50,11 +52,11 @@
             <version>${hmily-veraion}</version>
         </dependency>
 
-        <dependency>
+       &lt;!&ndash; <dependency>
             <groupId>org.dromara</groupId>
             <artifactId>hmily-admin</artifactId>
             <version>${hmily-veraion}</version>
-        </dependency>
+        </dependency>&ndash;&gt;
 
         <dependency>
             <groupId>org.dromara</groupId>
@@ -79,6 +81,50 @@
             <artifactId>disruptor</artifactId>
             <version>${disruptor.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>${mongo.driver.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+            <version>${spring.data.mongodb.version}</version>
+        </dependency>-->
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>hmily-spring-boot-starter-springcloud</artifactId>
+            <version>${hmily-veraion}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>hmily-springcloud</artifactId>
+            <version>${hmily-veraion}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
     </dependencies>
 
 

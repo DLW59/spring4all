@@ -1,0 +1,51 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: web
+  redis:
+    port: 6379
+    host: 47.92.129.232
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    jdbc-url: jdbc:mysql://39.98.233.214:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: yixinjia@2019
+    type: com.zaxxer.hikari.HikariDataSource
+  mvc:
+    view:
+      suffix: .html
+    favicon:
+      enabled: true
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+
+  #config-location与下面的configuration的配置不能同时存在
+#  config-location: classpath:mybatis-config.xml
+  typeAliasesPackage: com.dlw.study.domain
+  global-config:
+    db-config:
+      #主键类型
+      id-type: UUID
+      #字段策略
+      field-strategy: default
+        #数据库大写下划线转换
+      table-underline: true
+      #逻辑删除配置（下面3个配置）
+
+#      logic-delete-value: 1
+#    logic-not-delete-value: 0
+#    sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+    #自定义填充策略接口实现
+#    meta-object-handler: com.baomidou.springboot.MyMetaObjectHandler
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    #配置JdbcTypeForNull
+    jdbc-type-for-null: null
+
+
+
+
+

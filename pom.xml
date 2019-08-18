@@ -30,6 +30,10 @@
         <module>spring-boot-admin</module>
         <module>spring-boot-jpa</module>
         <module>transaction-all</module>
+        <module>springboot-es</module>
+        <module>spring-boot-web</module>
+        <module>consul</module>
+        <module>webflux</module>
     </modules>
 
     <dependencies>
@@ -69,7 +73,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.RC2</version>
+                <version>Finchley.SR1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

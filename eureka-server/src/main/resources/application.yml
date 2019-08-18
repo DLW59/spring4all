@@ -1,4 +1,3 @@
-
 server:
   port: 8761
 spring:
@@ -13,8 +12,8 @@ eureka:
     response-cache-auto-expiration-in-seconds: 180   #eureka server缓存readWriteCacheMap失效时间，这个只有在这个时间过去后缓存才会失效，失效前不会更新，过期后从registry重新读取注册服务信息，registry是一个ConcurrentHashMap。
   client:
     service-url:
-#      defaultZone: 192.168.52.131:8761/eureka
-      defaultZone: 127.0.0.1:8761/eureka
+      #      defaultZone: 192.168.52.131:8761/eureka
+      defaultZone: http://127.0.0.1:8761/eureka/
     register-with-eureka: false
     fetch-registry: false
   instance:

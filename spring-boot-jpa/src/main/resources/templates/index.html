@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>vue demo</title>
+</head>
+<body>
+<div class="main-panel" id="myApp" v-cloak="v-cloak">
+    <button @click="skip">跳转到用户界面</button>
+    <button @click="demo">跳转到demo</button>
+    <p>{{name}}</p>
+    <div v-text="name"></div>
+    <div v-html="htmlStr"></div>
+    <div>{{test1}}</div>
+    <div>{{test2()}}</div>
+    <template v-if="ok">
+        <p>学的不仅是技术，更是梦想！</p>
+        <p>哈哈哈，打字辛苦</p>
+    </template>
+    <!--数组循环-->
+    <div v-for="(item,index) in arr" :key="index">{{item}}</div>
+    <!-- 循环渲染对象中的异步数据 -->
+    <div v-for="(item,index) in obj.p2" :key="index">{{item}}</div>
+    <div v-for="(item,index) in obj.p4" :key="index">{{item.k}}</div>
+
+
+    <comp data="hello vue"></comp>
+
+
+    <div id="counter">
+        <p style = "font-size:25px;">计数器: {{ counter }}</p>
+        <button @click = "count()" style = "font-size:25px;">点我</button>
+    </div>
+</div>
+<div id="app">
+    <!--插值表达式-->
+    <p @click="handle">点我改变内容：{{name}}</p>
+    <p v-text="name"></p>
+    <p v-html="name"></p>
+    <div>hello {{name}}</div>
+    <!--属性数据绑定-->
+    <!--<div v-bind:title="title">指我看提示</div>-->
+    <div :title="title">指我看提示</div>
+
+    <!--双向绑定 输入框的内容改变div的也改变-->
+    <input v-model="content"/>
+    <div>{{content}}</div>
+
+    <!--计算属性和监听器-->
+    姓:<input v-model="firstName"/>
+    名:<input v-model="lastName"/>
+    <div>全名:{{fullName}}  修改次数{{count}}</div>
+
+
+    <!--组件使用-->
+    <input v-model="value"/>
+    <button @click="pushValue">提交</button>
+    <ul>
+        <todo-item v-for="(item,index) in list"
+                   :key="index"
+                   :content="item"
+                   :index="index"
+                   @deleted="del"
+        >
+
+        </todo-item>
+    </ul>
+
+</div>
+<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+<!--<script  src="/static/js/jquery.min.js"></script>-->
+<!--<script  src="/static/js/vue-resource.min.js"></script>-->
+<!--<script  src="/static/js/vue.min.js"></script>-->
+    <script type="text/javascript">
+        <!--一个组件就是一个Vue实例-->
+        <!--自定义组件  全局组件-->
+        Vue.component('comp',{
+           props:['data'],
+           template: '<span>{{ data }}</span>'
+        });
+
+        Vue.component('todo-item',{
+            props:['content','index'],
+            template: '<li @click="handleClick">{{content}}</li>',
+            methods:{
+                handleClick:function () {
+                //    点击删除数据，子组件和父组件通信,发布订阅模式
+                    this.$emit('deleted',this.index);
+                }
+            }
+        });
+
+        new Vue({
+            //el属性值与docment元素id一致,所以id为myApp的div是Vue实例的挂载点
+            //相当于Vue实例的作用返回在这个div内
+            el: '#myApp',
+            data:function () {
+                return {
+                    name:'',
+                    age:0,
+                    num:1000000,
+                    htmlStr: '<span>I am a html code</span>',
+                    ok:true,
+                    arr:["1",2,{"name":"tm"}],
+                    obj:{
+                        p1:'p1',
+                        p2:[1,2,3],
+                        p3:{k:3},
+                        p4:[{
+                            k:"v1"
+                        },{
+                            k:"v2"
+                        }]
+                    },
+                    //计数器
+                    counter:1
+                }
+            },
+            created:function () {
+                this.name = 'dlw';
+                this.age = 26
+            },
+
+            //计算 会缓存
+            computed:{
+              test1:function () {
+                  return this.name + '' + this.age;
+              }
+            },
+
+            //过滤器
+            filters:{
+                numberFormatter:function (value) {
+                    value = value||0;
+                    console.log(value);
+                    return value > 100
+                }
+            },
+
+            //方法
+            methods: {
+                test2:function () {
+                    return this.name + '' + this.age;
+                },
+
+                count:function () {
+                    return this.counter++;
+                },
+                skip:function () {
+                    window.location.href = '/userView'
+                },
+                demo:function () {
+                    window.location.href = "/demo1";
+                }
+            }
+        });
+
+        //第二个Vue实例
+        new Vue({
+            el:"#app",
+            //vue实例模板，如果模板写在实例里则挂载点的元素就只有模板的
+            // template:'<div>hello {{name}}</div>',
+            data:{
+                name:"hello",
+                //参与数据绑定
+                title:'这是标题',
+                content:'',
+                firstName:'',
+                lastName:'',
+                count:0,
+                list:[],
+                value:''
+            },
+            computed:{
+              fullName:function () {
+                  return this.firstName + " " + this.lastName
+              }
+            },
+            watch:{
+              //  监听fullName是否发生变化
+              fullName:function () {
+                  return this.count++;
+              }
+            },
+            methods:{
+                handle:function () {
+                    this.name = "world"
+                },
+                pushValue:function () {
+                    this.list.push(this.value);
+                    this.value = ''
+                },
+                del:function (index) {
+                    this.list.splice(index,1);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

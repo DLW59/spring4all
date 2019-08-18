@@ -1,0 +1,302 @@
+html,
+body,
+#app {
+  height: 100%;
+  overflow: hidden;
+}
+header {
+  position: relative;
+  display: flex;
+  height: 50px;
+  background-image: url('../../images/header-ds-frame-bg.png'),linear-gradient(
+    to bottom,
+    rgba(46, 65, 92, 0.15),
+    rgba(13, 133, 252, 0.1)
+  );
+}
+.data-monitor-header {
+	justify-content: flex-end;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  width: 180px;
+  height: 100%;
+  padding-left: 8px;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(46, 65, 92, 0.15),
+      rgba(13, 133, 252, 0.1)
+    ),
+    radial-gradient(circle at 50% 400%, #78e6ff, rgba(50, 64, 87, 0) 180px);
+  cursor: pointer;
+}
+.logo img {
+  height: 28px;
+  margin-left: 10px;
+}
+.logo .h1 {
+  flex: 1;
+  font-size: 18px;
+  text-align: left;
+  color: #ffffff;
+  text-indent: 8px;
+  font-weight: normal;
+  font-family: "Yuanti SC";
+}
+.page-title {
+  position: absolute;
+  left: 50%;
+  height: 44px;
+  line-height: 44px;
+  width: 380px;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  color: #78e6ff;
+  background: url("../../images/tbg_mid.png");
+  background-size: 100% 100%;
+}
+.header-body {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-menu {
+  flex: 1;
+  background-color: transparent;
+}
+.top-menu .el-menu-item,
+.top-menu .el-submenu {
+  height: 50px;
+  line-height: 50px;
+  color: #95b1bf;
+}
+.el-menu--horizontal .ds-submenu>.el-submenu__title{
+    height: 50px;
+    color: #95b1bf;
+    line-height: 50px;
+    border-bottom: 5px solid transparent;
+}
+.top-menu.el-menu--horizontal.el-menu--dark .el-menu-item:hover {
+  background-color: transparent;
+  color: #78e6ff;
+}
+.top-menu>.el-menu-item.is-active,
+.top-menu .el-submenu.is-active {
+  background-color: transparent;
+  background-image: url('../../images/header-ds-active-menu.png');
+  background-size: 100% 45px;
+  background-position: 0px -2px;
+  background-repeat: no-repeat;
+  color: #78e6ff;
+}
+.profile {
+  display: flex;
+  align-items: center;
+  padding-right: 8px;
+}
+.page-type,
+.page-type:active {
+  padding: 5px 8px;
+  margin-right: 20px;
+  color: #b2e3ff;
+  background-color: transparent;
+/*   background-image: linear-gradient(
+    287deg,
+    rgba(0, 183, 255, 0.1),
+    rgba(122, 227, 255, 0.1)
+  ); */
+  border: 1px solid #00b7ff;
+  border-radius: 4px;
+}
+
+.page-type:focus,
+.page-type:hover {
+  color: #78e6ff;
+  border-color: currentColor;
+}
+.page-type i {
+  margin-right: 8px;
+}
+.checkout-team{
+  margin-right: 20px;
+  height: 25px;
+  line-height: 25px;
+  color: #fff;
+  cursor: pointer;
+}
+.checkout-team:hover{
+  color: #78e6ff;
+}
+.checkout-team .dropdown-link{
+  font-size: 14px;
+}
+.checkout-team__group{
+  padding: 0;
+  font-size: 12px;
+}
+.checkout-team__group:before{
+	margin: 0;
+}
+.checkout-team__group.is-disabled{
+  pointer-events: initial;
+}
+.checkout-team__group-title,
+.checkout-team__group-item{
+  padding: 0 10px;
+  height: 24px;
+  line-height: 24px;
+  color: #99a9bf;
+}
+.checkout-team__group-item{
+  text-align: center;
+  color: #475669;
+}
+.checkout-team__group-item:not(.disabled):hover{
+	background-color: #e7ebf3;
+	cursor: pointer;
+}
+.profile .user-profile__dropdown-link.text .user-profile__avatar {
+  background-color: transparent;
+  font-size: 12px;
+  font-weight: normal;
+  color: #b2e3ff;
+}
+section {
+  display: flex;
+  height: calc(100% - 50px);
+}
+aside {
+  width: 180px;
+  height: 100%;
+  background-image: url('../../images/sidebar-ds-bg.png'),linear-gradient(
+    166deg,
+    rgba(13, 133, 252, 0.19),
+    rgba(0, 0, 0, 0.49)
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.aside-menu {
+  margin-top: 20px;
+  background-color: transparent;
+}
+.aside-menu .el-menu-item {
+  border-left: 4px solid transparent;
+}
+.aside-menu .el-menu-item,
+.aside-menu .el-submenu__title {
+  color: #95b1bf;
+}
+.aside-menu .el-menu {
+  background-color: transparent;
+}
+.aside-menu .el-menu-item:hover {
+  color: #fff;
+}
+.aside-menu .el-menu-item.is-active {
+  background-color: #fff;
+  color: #0d85fc;
+  border-left: 4px solid currentColor;
+}
+.aside-menu .el-menu-item.is-active:hover {
+  color: #0d85fc;
+}
+.menu-item__text {
+  color: inherit;
+}
+.menu-item__text::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 15px;
+  color: inherit;
+  vertical-align: middle;
+  background-color: currentColor;
+}
+main {
+  flex: 1;
+  height: 100%;
+  padding: 4px 2px 0 8px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+}
+.full{padding:0px}
+iframe,
+.tab-page{
+  height: 100%;
+}
+.tab-page .el-tabs__header {
+  margin-bottom: 0;
+  border-bottom: 0;
+  box-shadow: 0 1px #e0e6ed;
+}
+.tab-page .el-tabs__content {
+  height: calc(100% - 40px);
+  margin-top: 10px;
+
+  background-color: #fff;
+}
+.tab-page .el-tab-pane {
+  height: 100%;
+}
+.tab-page .el-tabs__active-bar {
+  bottom: auto;
+  top: 0;
+}
+.tab-page .el-tabs__item {
+  height: 30px;
+  line-height: 30px;
+
+  background-color: #f9fafc;
+  color: #99a9bf;
+  box-shadow: 1px 1px 0px 0px #e0e6ed inset;
+}
+.tab-page .el-tabs__item:last-of-type{
+  border-right: 1px solid #e0e6ed;
+}
+.tab-page .el-tabs__item:hover {
+  color: #1f2d3d;
+}
+.tab-page .el-tabs__item.is-active {
+  background-color: #fff;
+  color: #0d85fc;
+  box-shadow: 1px 1px 0px 0px #e0e6ed inset;
+}
+.tab-page .el-tabs__item:hover .el-icon-close {
+  color: #838fa5;
+}
+.tab-page .el-tabs__item .el-icon-close:hover {
+  color: #fff;
+  background: #1f2d3d;
+}
+.tab-page .el-tabs__item .el-icon-close:before {
+  transform: scale(0.5, 0.5);
+}
+.tab-page .el-tabs__item.is-active .el-icon-close:hover {
+  background: #0d85fc;
+}
+.el-dropdown-menu{
+	max-height:400px;
+	overflow:auto;
+}
+.el-icon-more {
+	font-size: 20px;
+	margin-top: 16px;
+}
+.tab-refresh {
+	margin-left: 5px;
+	transform: scale(0.8,0.8);
+	display: none;
+}
+.tab-refresh :hover{
+	transform: scale(1.2,1.2);
+}
+.is-active .tab-refresh {
+	display: inline-block;
+}

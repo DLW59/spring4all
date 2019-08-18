@@ -1,7 +1,11 @@
 package com.dlw.study.service;
 
+import com.dlw.study.common.PageVo;
 import com.dlw.study.domain.Role;
+import com.dlw.study.vo.RoleVo;
 import org.springframework.data.domain.Page;
+
+import java.util.Set;
 
 /**
  * @author dengliwen
@@ -9,5 +13,14 @@ import org.springframework.data.domain.Page;
  */
 public interface RoleService {
 
-    Page<Role> pageRoles(Long userId);
+    PageVo<RoleVo> list(String keywords);
+
+    RoleVo add(RoleVo vo);
+
+    RoleVo update(RoleVo vo);
+
+    void delete(String id);
+
+    Set<RoleVo> roles();
+
 }
