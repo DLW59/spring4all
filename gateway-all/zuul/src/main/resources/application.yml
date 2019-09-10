@@ -1,0 +1,96 @@
+server:
+  port: 10050
+#  servlet:
+#    context-path: /dlw
+spring:
+  application:
+    name: zuul
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      config:
+        acl-token: m21p2BE1AtpwPbrxZdC6k+eXA==
+        enabled: true
+        data-key: data
+#        format: YAML
+        watch:
+          enabled: true
+      discovery:
+        acl-token: m21p2BE1AtpwPbrxZdC6k+eXA==
+        enabled: true
+        health-check-interval: 5s
+        health-check-timeout: 10s
+        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        prefer-ip-address: true
+        heartbeat:
+          enabled: true
+          ttlValue: 30
+  boot:
+    admin:
+      client:
+        url: http://localhost:9999  #springboot服务端地址
+        instance:
+          prefer-ip: true
+  main:
+    allow-bean-definition-overriding: true #解决重复的bean名称注入不了问题 加了还是解决不了  版本问题
+    #2.1.X版本会报此错误   目前主要出现在zuul的网关中
+    #解决：降版本或用gateway替代zuul
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false    #设置熔断的超时时间开启 false关闭熔断功能，true开启熔断功能
+        isolation:
+          thread:
+            timeoutInMilliseconds: 90000
+
+
+zuul:
+  retryable: false    #关闭重试
+  add-host-header: true
+  routes:
+    web: #路由别名
+      path: /web/**
+      service-id: web
+      strip-prefix: true
+      custom-sensitive-headers: true  #http://blog.didispace.com/spring-cloud-zuul-cookie-redirect/ zuul授权码跳转问题
+    soso: #路由别名
+      path: /soso/**
+      service-id: soso-show
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://127.0.0.1:8761/eureka
+#      #http://192.168.3.170:1111/eureka,http://192.168.3.171:1111/eureka,http://192.168.3.173:1111/eureka
+#      #http://130.75.131.243:1111/eureka/,http://130.75.131.244:1111/eureka/,http://130.75.131.245:1111/eureka/
+#  instance:
+#    hostname: 127.0.0.1
+#    prefer-ip-address: true
+#    instance-id: ${spring.application.name}:${eureka.instance.hostname}:${spring.application.instance_id:${server.port}}
+##    instance-id: ${spring.application.name}:${docker.ipAddress}:${spring.application.instance_id:${server.port}}
+#    lease-renewal-interval-in-seconds: 5
+#    health-check-url-path: /actuator/health
+    #注册实例文档
+#    status-page-url: http://${eureka.instance.hostname}:${server.port}/swagger-ui.html # ${server.port}为该服务的端口号
+#    status-page-url: http://${docker.ipAddress}:${server.port}/swagger-ui.html # ${server.port}为该服务的端口号
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #auditevents, beans, conditions, configprops, flyway, health, heapdump, httptrace, info, jolokia, logfile, loggers, liquibase, metrics, mappings, prometheus, scheduledtasks, sessions, threaddump
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  config: classpath:logback-spring.xml
+  file: /logs/zuul.log
+  level:
+    zuul: info
+  
+ 

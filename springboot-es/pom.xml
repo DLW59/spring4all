@@ -12,8 +12,8 @@
     <artifactId>springboot-es</artifactId>
 
     <properties>
-        <es-version>7.1.1</es-version>
-        <es-client-version>7.1.1</es-client-version>
+        <es-version>6.6.0</es-version>
+        <es-client-version>6.6.0</es-client-version>
     </properties>
 
     <dependencies>
