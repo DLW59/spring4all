@@ -69,7 +69,7 @@ public class EsCollectServiceImpl implements EsCollectService {
             final Set<String> strings = indexObject.keySet();
         });
         r.setData(jsonObject);
-        System.out.print(System.currentTimeMillis());
+        System.out.print(System.currentTimeMillis());//时间
         return r;
     }
 }
