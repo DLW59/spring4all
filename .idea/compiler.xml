@@ -6,34 +6,34 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="account-service" />
-        <module name="aliyun-mq-consumer-server" />
-        <module name="aliyun-mq-producer-server" />
-        <module name="common" />
-        <module name="consul-consumer" />
-        <module name="consul-producer" />
-        <module name="eureka-server" />
-        <module name="mq-consumer-server" />
-        <module name="mq-producer-server" />
-        <module name="order-service" />
-        <module name="spring-boot-admin" />
-        <module name="spring-boot-jpa" />
-        <module name="spring-boot-web" />
-        <module name="springboot-es" />
-        <module name="springboot-kafka" />
-        <module name="SpringCloudStream-Kafka" />
-        <module name="stock-service" />
-        <module name="tiny-ioc (1)" />
-        <module name="tiny-ioc (2)" />
-        <module name="tiny-ioc (3)" />
-        <module name="tiny-ioc (4)" />
-        <module name="tiny-ioc (5)" />
         <module name="tiny-spring (1)" />
-        <module name="tiny-spring (2)" />
-        <module name="tiny-spring (3)" />
-        <module name="tiny-spring (4)" />
-        <module name="tiny-spring (5)" />
+        <module name="aliyun-mq-consumer-server" />
+        <module name="consul-producer" />
+        <module name="tiny-ioc (1)" />
+        <module name="account-service" />
+        <module name="mq-producer-server" />
         <module name="webflux" />
+        <module name="tiny-ioc (2)" />
+        <module name="stock-service" />
+        <module name="spring-boot-jpa" />
+        <module name="mq-consumer-server" />
+        <module name="tiny-ioc (3)" />
+        <module name="springboot-kafka" />
+        <module name="tiny-spring (4)" />
+        <module name="order-service" />
+        <module name="springboot-es" />
+        <module name="tiny-ioc (4)" />
+        <module name="tiny-spring (3)" />
+        <module name="tiny-spring (5)" />
+        <module name="eureka-server" />
+        <module name="tiny-spring (2)" />
+        <module name="consul-consumer" />
+        <module name="tiny-ioc (5)" />
+        <module name="SpringCloudStream-Kafka" />
+        <module name="spring-boot-web" />
+        <module name="common" />
+        <module name="aliyun-mq-producer-server" />
+        <module name="spring-boot-admin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -74,5 +74,27 @@
       <module name="transaction-hmily" target="1.8" />
       <module name="webflux" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SpringCloudStream-Kafka" options="-parameters" />
+      <module name="account-service" options="-parameters" />
+      <module name="aliyun-mq-consumer-server" options="-parameters" />
+      <module name="aliyun-mq-producer-server" options="-parameters" />
+      <module name="common" options="-parameters" />
+      <module name="consul-consumer" options="-parameters" />
+      <module name="consul-producer" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="mq-consumer-server" options="-parameters" />
+      <module name="mq-producer-server" options="-parameters" />
+      <module name="order-service" options="-parameters" />
+      <module name="spring-boot-admin" options="-parameters" />
+      <module name="spring-boot-jpa" options="-parameters" />
+      <module name="spring-boot-web" options="-parameters" />
+      <module name="springboot-es" options="-parameters" />
+      <module name="springboot-kafka" options="-parameters" />
+      <module name="stock-service" options="-parameters" />
+      <module name="webflux" options="-parameters" />
+    </option>
   </component>
 </project>
