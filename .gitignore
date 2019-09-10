@@ -24,7 +24,7 @@
 /springboot-kafka/*.iml
 /springboot-rocketmq/target
 /springboot-rocketmq/*.iml
-
+/*.iml
 
 
 *.jar
