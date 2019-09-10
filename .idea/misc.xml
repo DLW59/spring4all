@@ -20,6 +20,7 @@
         <option value="$PROJECT_DIR$/spring/step7-method-interceptor-by-jdk-dynamic-proxy/pom.xml" />
         <option value="$PROJECT_DIR$/spring/step8-invite-pointcut-and-aspectj/pom.xml" />
         <option value="$PROJECT_DIR$/spring/step9-auto-create-aop-proxy/pom.xml" />
+        <option value="$PROJECT_DIR$/../soso-show/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
