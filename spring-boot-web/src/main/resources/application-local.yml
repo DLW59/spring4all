@@ -3,6 +3,12 @@ server:
 spring:
   application:
     name: web
+  boot:
+    admin:
+      client:
+        url: http://localhost:9999  #springboot服务端地址
+        instance:
+          prefer-ip: true
   redis:
     port: 6379
     host: localhost
@@ -45,6 +51,14 @@ mybatis-plus:
     #配置JdbcTypeForNull
     jdbc-type-for-null: null
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #auditevents, beans, conditions, configprops, flyway, health, heapdump, httptrace, info, jolokia, logfile, loggers, liquibase, metrics, mappings, prometheus, scheduledtasks, sessions, threaddump
+  endpoint:
+    health:
+      show-details: always
 
 
 

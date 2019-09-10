@@ -12,6 +12,12 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+  boot:
+    admin:
+      client:
+        url: http://localhost:9999  #springboot服务端地址
+        instance:
+          prefer-ip: true
 
 #  ddl-auto:create----每次运行该程序，没有表格会新建表格，表内有数据会清空
 #
@@ -20,3 +26,11 @@ spring:
 #  ddl-auto:update----每次运行程序，没有表格会新建表格，表内有数据不会清空，只会更新
 #
 #  ddl-auto:validate----运行程序会校验数据与数据库的字段类型是否相同，不同会报错
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #auditevents, beans, conditions, configprops, flyway, health, heapdump, httptrace, info, jolokia, logfile, loggers, liquibase, metrics, mappings, prometheus, scheduledtasks, sessions, threaddump
+  endpoint:
+    health:
+      show-details: always

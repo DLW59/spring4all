@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      config:
+        acl-token: m21p2BE1AtpwPbrxZdC6k+eXA==
+        enabled: true
+        data-key: data
+        #        format: YAML
+        watch:
+          enabled: true
+      discovery:
+        acl-token: m21p2BE1AtpwPbrxZdC6k+eXA==
+        enabled: true
+        health-check-interval: 5s
+        health-check-timeout: 10s
+        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        prefer-ip-address: true
+        heartbeat:
+          enabled: true
+          ttlValue: 30
+  boot:
+    admin:
+      client:
+        url: http://localhost:9999  #springboot服务端地址
+        instance:
+          prefer-ip: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #auditevents, beans, conditions, configprops, flyway, health, heapdump, httptrace, info, jolokia, logfile, loggers, liquibase, metrics, mappings, prometheus, scheduledtasks, sessions, threaddump
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true  #监控gateway
+
+logging:
+  config: classpath:logback-spring.xml
+  file: /logs/gateway.log
+  level:
+    zuul: info
