@@ -33,7 +33,7 @@
         <module>springboot-es</module>
         <module>spring-boot-web</module>
         <module>consul</module>
-        <module>webflux</module>
+        <module>x-pack</module>
         <module>gateway-all</module>
     </modules>
 
@@ -66,6 +66,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.5.10</version>
         </dependency>
     </dependencies>
 

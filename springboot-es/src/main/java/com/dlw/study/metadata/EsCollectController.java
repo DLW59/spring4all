@@ -3,9 +3,7 @@ package com.dlw.study.metadata;
 import com.dlw.study.common.R;
 import com.dlw.study.metadata.service.EsCollectService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author dengliwen
@@ -19,8 +17,8 @@ public class EsCollectController {
     @Autowired
     private EsCollectService esCollectService;
 
-    @PostMapping("/collect")
-    public R esController() {
-        return esCollectService.collect();
+    @GetMapping("/collect")
+    public R esController(@RequestParam(required = false) String username, @RequestParam(required = false) String password) {
+        return esCollectService.collect(username,password);
     }
 }

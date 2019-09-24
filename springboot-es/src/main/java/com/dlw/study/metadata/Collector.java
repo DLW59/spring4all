@@ -10,6 +10,6 @@ import org.elasticsearch.action.search.SearchResponse;
  */
 public interface Collector {
 
-    R collect();
+    R collect(String username,String password);
 
 }

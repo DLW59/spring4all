@@ -4,6 +4,8 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+
 /**
  * @author dengliwen
  * @date 2019/5/29
@@ -15,9 +17,10 @@ import org.springframework.context.annotation.Configuration;
 public class EsProperty {
 
     private String clusterName;
-    private String clusterNode;
-    private Integer port;
+    private List<String> clusterNode;
     private String scheme;
+    private String username;
+    private String password;
     private Integer connectTimeout;
     private Integer socketTimeout;
     private Integer connectRequestTimeout;
