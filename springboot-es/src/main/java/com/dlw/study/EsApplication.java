@@ -16,9 +16,5 @@ public class EsApplication {
         SpringApplication.run(EsApplication.class,args);
     }
 
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
 
 }

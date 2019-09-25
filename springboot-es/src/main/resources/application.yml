@@ -1,0 +1,50 @@
+server:
+  port: 9876
+spring:
+  application:
+    name: spring-boot-es
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    hikari:
+      connection-test-query: select 1
+      maximum-pool-size: 10
+      minimum-idle: 2
+    password: 123456
+    type: com.zaxxer.hikari.HikariDataSource
+    username: root
+    url: jdbc:mysql://localhost:3306/escollect?characterEncoding=utf8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+es:
+#  cluster-name: elasticsearch #本地集群
+#  cluster-node: localhost:9200,localhost:9201,localhost:9202
+  cluster-name: elasticsearch-standalone #本地单机
+  cluster-node: localhost:9200
+  username: elastic
+  password: 123456
+  scheme: http
+  connect-timeout: 1000
+  socket-timeout: 30000
+  connect-request-timeout: 500
+  max-connect-num: 100
+  max-connect-per-route: 100
+#  boot:
+#    admin:
+#      client:
+#        url: http://localhost:9999  #springboot服务端地址
+#        instance:
+#          prefer-ip: true
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*" #auditevents, beans, conditions, configprops, flyway, health, heapdump, httptrace, info, jolokia, logfile, loggers, liquibase, metrics, mappings, prometheus, scheduledtasks, sessions, threaddump
+#  endpoint:
+#    health:
+#      show-details: always
+

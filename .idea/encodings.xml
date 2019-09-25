@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/../soso-show" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/consul" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/consul/consul-consumer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/consul/consul-producer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-all" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-all/gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-all/zuul" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-boot-admin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-boot-jpa" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-boot-web" charset="UTF-8" />
