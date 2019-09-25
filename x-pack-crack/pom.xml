@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>x-pack</artifactId>
+    <artifactId>x-pack-crack</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.elasticsearch</groupId>

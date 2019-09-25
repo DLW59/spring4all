@@ -33,7 +33,7 @@
         <module>springboot-es</module>
         <module>spring-boot-web</module>
         <module>consul</module>
-        <module>x-pack</module>
+        <module>x-pack-crack</module>
         <module>gateway-all</module>
     </modules>
 
