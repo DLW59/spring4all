@@ -17,6 +17,10 @@
       <module fileurl="file://$PROJECT_DIR$/springboot-rocketmq/mq-consumer-server/mq-consumer-server.iml" filepath="$PROJECT_DIR$/springboot-rocketmq/mq-consumer-server/mq-consumer-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-rocketmq/mq-producer-server/mq-producer-server.iml" filepath="$PROJECT_DIR$/springboot-rocketmq/mq-producer-server/mq-producer-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/transaction-all/transaction-hmily/order-service/order-service.iml" filepath="$PROJECT_DIR$/transaction-all/transaction-hmily/order-service/order-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transaction-all/transaction-rocketmq/rocketmq-commons/rocketmq-commons.iml" filepath="$PROJECT_DIR$/transaction-all/transaction-rocketmq/rocketmq-commons/rocketmq-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transaction-all/transaction-rocketmq/rocketmq-consume/rocketmq-consume.iml" filepath="$PROJECT_DIR$/transaction-all/transaction-rocketmq/rocketmq-consume/rocketmq-consume.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transaction-all/transaction-rocketmq/rocketmq-produce/rocketmq-produce.iml" filepath="$PROJECT_DIR$/transaction-all/transaction-rocketmq/rocketmq-produce/rocketmq-produce.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transaction-all/transaction-rocketmq/rocketmq-service/rocketmq-service.iml" filepath="$PROJECT_DIR$/transaction-all/transaction-rocketmq/rocketmq-service/rocketmq-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/../soso-show/soso-show.iml" filepath="$PROJECT_DIR$/../soso-show/soso-show.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-admin/spring-boot-admin.iml" filepath="$PROJECT_DIR$/spring-boot-admin/spring-boot-admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-jpa/spring-boot-jpa.iml" filepath="$PROJECT_DIR$/spring-boot-jpa/spring-boot-jpa.iml" />
@@ -38,7 +42,8 @@
       <module fileurl="file://$PROJECT_DIR$/spring/step9-auto-create-aop-proxy/tiny-spring (5).iml" filepath="$PROJECT_DIR$/spring/step9-auto-create-aop-proxy/tiny-spring (5).iml" />
       <module fileurl="file://$PROJECT_DIR$/transaction-all/transaction-all.iml" filepath="$PROJECT_DIR$/transaction-all/transaction-all.iml" />
       <module fileurl="file://$PROJECT_DIR$/transaction-all/transaction-hmily/transaction-hmily.iml" filepath="$PROJECT_DIR$/transaction-all/transaction-hmily/transaction-hmily.iml" />
-      <module fileurl="file://$PROJECT_DIR$/webflux/webflux.iml" filepath="$PROJECT_DIR$/webflux/webflux.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transaction-all/transaction-rocketmq/transaction-rocketmq.iml" filepath="$PROJECT_DIR$/transaction-all/transaction-rocketmq/transaction-rocketmq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/x-pack-crack/x-pack-crack.iml" filepath="$PROJECT_DIR$/x-pack-crack/x-pack-crack.iml" />
       <module fileurl="file://$PROJECT_DIR$/gateway-all/zuul/zuul.iml" filepath="$PROJECT_DIR$/gateway-all/zuul/zuul.iml" />
     </modules>
   </component>

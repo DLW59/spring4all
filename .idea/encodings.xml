@@ -38,6 +38,10 @@
     <file url="file://$PROJECT_DIR$/transaction-all/transaction-hmily/order-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/transaction-all/transaction-hmily/stock-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/transaction-all/transaction-rocketmq" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/transaction-all/transaction-rocketmq/rocketmq-commons" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/transaction-all/transaction-rocketmq/rocketmq-consume" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/transaction-all/transaction-rocketmq/rocketmq-produce" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/transaction-all/transaction-rocketmq/rocketmq-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/x-pack-crack" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
