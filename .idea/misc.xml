@@ -26,6 +26,8 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/springboot-rocketmq/mq-common/pom.xml" />
+        <option value="$PROJECT_DIR$/transaction-all/transaction-rocketmq/pom.xml" />
+        <option value="$PROJECT_DIR$/x-pack-crack/pom.xml" />
       </set>
     </option>
   </component>

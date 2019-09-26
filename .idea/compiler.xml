@@ -19,21 +19,22 @@
         <module name="tiny-spring (4)" />
         <module name="consul-consumer" />
         <module name="tiny-ioc (1)" />
-        <module name="spring-boot-web" />
+        <module name="springboot-kafka" />
         <module name="aliyun-mq-producer-server" />
         <module name="tiny-spring (1)" />
         <module name="SpringCloudStream-Kafka" />
         <module name="mq-producer-server" />
         <module name="springboot-es" />
+        <module name="Springcloud-stream-kafka" />
         <module name="tiny-ioc (3)" />
         <module name="common" />
         <module name="spring-boot-jpa" />
-        <module name="springboot-kafka" />
+        <module name="eureka-server" />
         <module name="tiny-spring (3)" />
         <module name="mq-consumer-server" />
         <module name="soso-show" />
         <module name="tiny-ioc (5)" />
-        <module name="eureka-server" />
+        <module name="spring-boot-web" />
         <module name="gateway" />
         <module name="tiny-spring (5)" />
         <module name="stock-service" />
@@ -64,6 +65,7 @@
       <module name="springboot-es" target="1.8" />
       <module name="springboot-kafka" target="1.8" />
       <module name="springboot-rocketmq" target="1.8" />
+      <module name="Springcloud-stream-kafka" target="1.8" />
       <module name="SpringCloudStream-Kafka" target="1.8" />
       <module name="stock-service" target="1.8" />
       <module name="tiny-ioc (1)" target="1.6" />
@@ -85,6 +87,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="SpringCloudStream-Kafka" options="-parameters" />
+      <module name="Springcloud-stream-kafka" options="-parameters" />
       <module name="account-service" options="-parameters" />
       <module name="aliyun-mq-consumer-server" options="-parameters" />
       <module name="aliyun-mq-producer-server" options="-parameters" />
