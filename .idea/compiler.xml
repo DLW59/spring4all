@@ -8,28 +8,32 @@
         <outputRelativeToContentRoot value="true" />
         <module name="aliyun-mq-consumer-server" />
         <module name="tiny-ioc (2)" />
+        <module name="rocketmq-service" />
         <module name="consul-producer" />
+        <module name="x-pack-crack" />
         <module name="zuul" />
         <module name="order-service" />
         <module name="tiny-spring (2)" />
         <module name="account-service" />
         <module name="spring-boot-admin" />
         <module name="tiny-ioc (4)" />
-        <module name="webflux" />
+        <module name="spring-boot-web" />
+        <module name="rocketmq-produce" />
         <module name="tiny-spring (4)" />
         <module name="consul-consumer" />
         <module name="tiny-ioc (1)" />
-        <module name="spring-boot-web" />
+        <module name="Springcloud-stream-kafka" />
         <module name="aliyun-mq-producer-server" />
         <module name="tiny-spring (1)" />
-        <module name="SpringCloudStream-Kafka" />
         <module name="mq-producer-server" />
         <module name="springboot-es" />
+        <module name="rocketmq-consume" />
         <module name="tiny-ioc (3)" />
         <module name="common" />
         <module name="spring-boot-jpa" />
         <module name="springboot-kafka" />
         <module name="tiny-spring (3)" />
+        <module name="rocketmq-commons" />
         <module name="mq-consumer-server" />
         <module name="soso-show" />
         <module name="tiny-ioc (5)" />
@@ -56,6 +60,10 @@
       <module name="mq-producer-server" target="1.8" />
       <module name="mqc-ommon" target="1.8" />
       <module name="order-service" target="1.8" />
+      <module name="rocketmq-commons" target="1.8" />
+      <module name="rocketmq-consume" target="1.8" />
+      <module name="rocketmq-produce" target="1.8" />
+      <module name="rocketmq-service" target="1.8" />
       <module name="soso-show" target="1.8" />
       <module name="spring-boot-admin" target="1.8" />
       <module name="spring-boot-jpa" target="1.8" />
@@ -64,7 +72,7 @@
       <module name="springboot-es" target="1.8" />
       <module name="springboot-kafka" target="1.8" />
       <module name="springboot-rocketmq" target="1.8" />
-      <module name="SpringCloudStream-Kafka" target="1.8" />
+      <module name="Springcloud-stream-kafka" target="1.8" />
       <module name="stock-service" target="1.8" />
       <module name="tiny-ioc (1)" target="1.6" />
       <module name="tiny-ioc (2)" target="1.6" />
@@ -78,13 +86,15 @@
       <module name="tiny-spring (5)" target="1.6" />
       <module name="transaction-all" target="1.8" />
       <module name="transaction-hmily" target="1.8" />
+      <module name="transaction-rocketmq" target="1.8" />
       <module name="webflux" target="1.8" />
+      <module name="x-pack-crack" target="1.8" />
       <module name="zuul" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="SpringCloudStream-Kafka" options="-parameters" />
+      <module name="Springcloud-stream-kafka" options="-parameters" />
       <module name="account-service" options="-parameters" />
       <module name="aliyun-mq-consumer-server" options="-parameters" />
       <module name="aliyun-mq-producer-server" options="-parameters" />
@@ -97,6 +107,10 @@
       <module name="mq-consumer-server" options="-parameters" />
       <module name="mq-producer-server" options="-parameters" />
       <module name="order-service" options="-parameters" />
+      <module name="rocketmq-commons" options="-parameters" />
+      <module name="rocketmq-consume" options="-parameters" />
+      <module name="rocketmq-produce" options="-parameters" />
+      <module name="rocketmq-service" options="-parameters" />
       <module name="soso-show" options="-parameters" />
       <module name="spring-boot-admin" options="-parameters" />
       <module name="spring-boot-jpa" options="-parameters" />
@@ -104,7 +118,9 @@
       <module name="springboot-es" options="-parameters" />
       <module name="springboot-kafka" options="-parameters" />
       <module name="stock-service" options="-parameters" />
+      <module name="transaction-rocketmq" options="-parameters" />
       <module name="webflux" options="-parameters" />
+      <module name="x-pack-crack" options="-parameters" />
       <module name="zuul" options="-parameters" />
     </option>
   </component>
