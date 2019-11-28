@@ -3,12 +3,12 @@ server:
 spring:
   application:
     name: web
-  boot:
-    admin:
-      client:
-        url: http://localhost:9999  #springboot服务端地址
-        instance:
-          prefer-ip: true
+#  boot:
+#    admin:
+#      client:
+#        url: http://localhost:9999  #springboot服务端地址
+#        instance:
+#          prefer-ip: true
   redis:
     port: 6379
     host: localhost

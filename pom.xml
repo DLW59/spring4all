@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dlw.study</groupId>
-    <artifactId>spring-4-all</artifactId>
+    <artifactId>spring4all</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -36,6 +36,8 @@
         <module>consul</module>
         <module>x-pack-crack</module>
         <module>gateway-all</module>
+        <module>springboot-redis</module>
+        <module>common-logger</module>
     </modules>
 
     <dependencies>
