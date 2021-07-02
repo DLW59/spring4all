@@ -12,7 +12,7 @@
     <artifactId>springboot-es</artifactId>
 
     <properties>
-        <es-version>6.6.0</es-version>
+        <es-version>6.8.15</es-version>
         <es-client-version>6.6.0</es-client-version>
         <mysql.version>6.0.6</mysql.version>
     </properties>
